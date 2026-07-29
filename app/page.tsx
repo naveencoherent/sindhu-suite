@@ -1,0 +1,282 @@
+import Image from "next/image";
+
+type Room = {
+  title: string;
+  description: string;
+  details: string[];
+  imageSrc: string;
+  imageAlt: string;
+};
+
+const heroImage = {
+  src: "/images/sindhu-suites-living-room.png",
+  alt: "Comfortable living room at Sindhu Suites with warm lighting and welcoming seating.",
+};
+
+const rooms: Room[] = [
+  {
+    title: "Deluxe Room",
+    description:
+      "A comfortable room designed for relaxed stays with simple, practical comforts.",
+    details: ["Queen bed", "Work desk", "Private bathroom"],
+    imageSrc: "/images/sindhu-suites-bedroom.png",
+    imageAlt: "Bright bedroom at Sindhu Suites with a neatly styled bed and soft natural light.",
+  },
+  {
+    title: "Family Room",
+    description:
+      "A spacious option that supports longer stays and easy shared living.",
+    details: ["Extra sleeping space", "Seating area", "Quiet setting"],
+    imageSrc: "/images/sindhu-suites-living-room.png",
+    imageAlt: "Open living area at Sindhu Suites with comfortable seating and a calm atmosphere.",
+  },
+];
+
+const amenities = [
+  "Free Wi-Fi",
+  "Air Conditioning",
+  "Parking",
+  "Kitchen",
+  "Housekeeping",
+  "Laundry Services",
+  "Airport Transfers",
+  "Long-Term Stays",
+  "Suitable for Business Travellers",
+];
+
+const contactDetails = {
+  whatsappUrl:
+    "https://wa.me/919449848432?text=Hello%20Sindhu%20Suites%2C%20I%20would%20like%20to%20enquire%20about%20availability%20for%20a%20stay.",
+  whatsappNumber: "+91 94498 48432",
+  phone: "+91 94498 48432",
+  email: "hello@sifin.in",
+  address: "384/A, RMV 2nd Stage, 2nd Block,\nBengaluru, Karnataka – 560094\nIndia",
+};
+
+function SectionHeading({
+  eyebrow,
+  title,
+  description,
+}: {
+  eyebrow: string;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="max-w-2xl space-y-3">
+      <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-700">
+        {eyebrow}
+      </p>
+      <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+        {title}
+      </h2>
+      <p className="text-lg leading-8 text-slate-600">{description}</p>
+    </div>
+  );
+}
+
+function PropertyImage({
+  src,
+  alt,
+  className,
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+}) {
+  return (
+    <div className={`relative overflow-hidden ${className ?? ""}`}>
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes="(min-width: 1024px) 40vw, 100vw"
+        className="object-cover"
+        priority={src === heroImage.src}
+        loading={src === heroImage.src ? "eager" : undefined}
+      />
+    </div>
+  );
+}
+
+function RoomCard({ room }: { room: Room }) {
+  return (
+    <article className="overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-sm">
+      <div className="relative h-56 w-full border-b border-stone-200 bg-stone-100">
+        <PropertyImage
+          src={room.imageSrc}
+          alt={room.imageAlt}
+          className="h-full w-full"
+        />
+      </div>
+      <div className="space-y-4 p-6">
+        <div>
+          <h3 className="text-xl font-semibold text-slate-900">{room.title}</h3>
+          <p className="mt-2 text-sm leading-7 text-slate-600">{room.description}</p>
+        </div>
+        <ul className="space-y-2 text-sm text-slate-700">
+          {room.details.map((detail) => (
+            <li key={detail} className="flex items-center gap-2">
+              <span className="h-2.5 w-2.5 rounded-full bg-amber-600" />
+              <span>{detail}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </article>
+  );
+}
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-stone-50 text-slate-900">
+      <main id="top">
+        <section className="border-b border-stone-200 bg-gradient-to-br from-amber-50 via-white to-stone-100">
+          <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-20 lg:flex-row lg:items-center lg:px-8 lg:py-28">
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-700">
+                Official property website
+              </p>
+              <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+                Sindhu Suites
+              </h1>
+              <p className="mt-5 text-xl leading-8 text-slate-600">
+                Comfortable Stay in a Peaceful Location
+              </p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href={contactDetails.whatsappUrl}
+                  className="rounded-full bg-amber-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-amber-800"
+                  aria-label="Book on WhatsApp for Sindhu Suites"
+                  rel="noopener noreferrer"
+                >
+                  Book on WhatsApp
+                </a>
+                <a
+                  href="#accommodation"
+                  className="rounded-full border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-stone-400 hover:bg-stone-100"
+                >
+                  View Rooms
+                </a>
+              </div>
+            </div>
+
+            <div className="w-full max-w-xl rounded-3xl border border-stone-200 bg-white/80 p-2 shadow-sm backdrop-blur">
+              <PropertyImage
+                src={heroImage.src}
+                alt={heroImage.alt}
+                className="h-80 w-full rounded-[1.25rem]"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section id="about" className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
+          <SectionHeading
+            eyebrow="About"
+            title="A welcoming stay in the heart of the property experience"
+            description="Sindhu Suites is the official property website for a comfortable stay in Bengaluru, with verified contact details and amenities shared in one place."
+          />
+          <div className="mt-8 rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
+            <p className="max-w-3xl text-lg leading-8 text-slate-700">
+              Welcome to Sindhu Suites, a comfortable stay in Bengaluru with verified contact details, a clear overview of the property, and amenities that are shared directly on this official website.
+            </p>
+          </div>
+        </section>
+
+        <section id="accommodation" className="mx-auto max-w-6xl px-6 py-4 lg:px-8">
+          <SectionHeading
+            eyebrow="Accommodation"
+            title="Rooms designed for comfort and ease"
+            description="The accommodation section highlights a pair of room options available at Sindhu Suites."
+          />
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {rooms.map((room) => (
+              <RoomCard key={room.title} room={room} />
+            ))}
+          </div>
+        </section>
+
+        <section id="amenities" className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
+          <SectionHeading
+            eyebrow="Amenities"
+            title="Essential comforts and support"
+            description="The amenities below are verified and shared directly on this official property website."
+          />
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            {amenities.map((amenity) => (
+              <li
+                key={amenity}
+                className="rounded-2xl border border-stone-200 bg-white p-5 text-sm font-medium text-slate-700 shadow-sm"
+              >
+                {amenity}
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-8 rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
+            <h3 className="text-xl font-semibold text-slate-900">Additional Services</h3>
+            <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
+              <li>• Laundry and dry-cleaning services are available upon request.</li>
+              <li>• Airport transfer assistance can be arranged upon request.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="contact" className="mx-auto max-w-6xl px-6 pb-20 lg:px-8">
+          <SectionHeading
+            eyebrow="Contact"
+            title="Reach out for bookings and questions"
+            description="Use the verified contact details below to enquire about availability and property information."
+          />
+          <div className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+            <div className="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-700">
+                WhatsApp
+              </p>
+              <a
+                href={contactDetails.whatsappUrl}
+                className="mt-3 inline-flex rounded-full bg-emerald-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700"
+                aria-label="Book on WhatsApp for Sindhu Suites"
+                rel="noopener noreferrer"
+              >
+                Book on WhatsApp
+              </a>
+              <p className="mt-4 text-sm text-slate-600">
+                WhatsApp: {contactDetails.whatsappNumber}
+              </p>
+            </div>
+            <div className="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
+              <ul className="space-y-4 text-sm text-slate-700">
+                <li>
+                  <span className="block font-semibold text-slate-900">Phone</span>
+                  <span className="mt-1 block">{contactDetails.phone}</span>
+                </li>
+                <li>
+                  <span className="block font-semibold text-slate-900">Email</span>
+                  <a
+                    href={`mailto:${contactDetails.email}`}
+                    className="mt-1 block text-amber-700 underline-offset-2 hover:underline"
+                  >
+                    {contactDetails.email}
+                  </a>
+                </li>
+                <li>
+                  <span className="block font-semibold text-slate-900">Address</span>
+                  <span className="mt-1 block whitespace-pre-line">{contactDetails.address}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-stone-200 bg-white/80">
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-8 text-sm text-slate-600 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+          <p className="font-semibold text-slate-900">Official Sindhu Suites Website</p>
+          <p>Booking Partners: Airbnb, Booking.com, Agoda, and MakeMyTrip.</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
