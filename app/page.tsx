@@ -32,13 +32,25 @@ const rooms: Room[] = [
   },
 ];
 
-const amenities: string[] = [];
+const amenities = [
+  "Free Wi-Fi",
+  "Air Conditioning",
+  "Parking",
+  "Kitchen",
+  "Housekeeping",
+  "Laundry Services",
+  "Airport Transfers",
+  "Long-Term Stays",
+  "Suitable for Business Travellers",
+];
 
 const contactDetails = {
-  whatsappUrl: null as string | null,
-  phone: "Coming Soon",
-  email: "Coming Soon",
-  address: "Coming Soon",
+  whatsappUrl:
+    "https://wa.me/919449848432?text=Hello%20Sindhu%20Suites%2C%20I%20would%20like%20to%20enquire%20about%20availability%20for%20a%20stay.",
+  whatsappNumber: "+91 94498 48432",
+  phone: "+91 94498 48432",
+  email: "hello@sifin.in",
+  address: "384/A, RMV 2nd Stage, 2nd Block,\nBengaluru, Karnataka – 560094\nIndia",
 };
 
 function SectionHeading({
@@ -133,8 +145,10 @@ export default function Home() {
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
-                  href="https://wa.me/1234567890"
+                  href={contactDetails.whatsappUrl}
                   className="rounded-full bg-amber-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-amber-800"
+                  aria-label="Book on WhatsApp for Sindhu Suites"
+                  rel="noopener noreferrer"
                 >
                   Book on WhatsApp
                 </a>
@@ -161,11 +175,11 @@ export default function Home() {
           <SectionHeading
             eyebrow="About"
             title="A welcoming stay in the heart of the property experience"
-            description="Sindhu Suites is the official website for the property, created to share a simple overview of the stay, accommodation options, and contact details in one place."
+            description="Sindhu Suites is the official property website for a comfortable stay in Bengaluru, with verified contact details and amenities shared in one place."
           />
           <div className="mt-8 rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
             <p className="max-w-3xl text-lg leading-8 text-slate-700">
-              Welcome to Sindhu Suites, a comfortable place to stay in a peaceful location. This homepage brings together the core information for guests in a clear and accessible format, with a focus on the property experience and easy contact options.
+              Welcome to Sindhu Suites, a comfortable stay in Bengaluru with verified contact details, a clear overview of the property, and amenities that are shared directly on this official website.
             </p>
           </div>
         </section>
@@ -174,7 +188,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Accommodation"
             title="Rooms designed for comfort and ease"
-            description="The accommodation section highlights a pair of room options with placeholder visuals that can be replaced with official property photos later."
+            description="The accommodation section highlights a pair of room options available at Sindhu Suites."
           />
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {rooms.map((room) => (
@@ -187,51 +201,49 @@ export default function Home() {
           <SectionHeading
             eyebrow="Amenities"
             title="Essential comforts and support"
-            description="The property amenities will be shared here as soon as they are confirmed."
+            description="The amenities below are verified and shared directly on this official property website."
           />
-          {amenities.length > 0 ? (
-            <ul className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-              {amenities.map((amenity) => (
-                <li
-                  key={amenity}
-                  className="rounded-2xl border border-stone-200 bg-white p-5 text-sm font-medium text-slate-700 shadow-sm"
-                >
-                  {amenity}
-                </li>
-              ))}
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            {amenities.map((amenity) => (
+              <li
+                key={amenity}
+                className="rounded-2xl border border-stone-200 bg-white p-5 text-sm font-medium text-slate-700 shadow-sm"
+              >
+                {amenity}
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-8 rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
+            <h3 className="text-xl font-semibold text-slate-900">Additional Services</h3>
+            <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
+              <li>• Laundry and dry-cleaning services are available upon request.</li>
+              <li>• Airport transfer assistance can be arranged upon request.</li>
             </ul>
-          ) : (
-            <div className="mt-8 rounded-2xl border border-stone-200 bg-white p-6 text-sm font-medium text-slate-700 shadow-sm">
-              Coming Soon
-            </div>
-          )}
+          </div>
         </section>
 
         <section id="contact" className="mx-auto max-w-6xl px-6 pb-20 lg:px-8">
           <SectionHeading
             eyebrow="Contact"
             title="Reach out for bookings and questions"
-            description="Use the contact details below as a simple placeholder structure until the official property information is confirmed."
+            description="Use the verified contact details below to enquire about availability and property information."
           />
           <div className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
             <div className="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-700">
                 WhatsApp
               </p>
-              {contactDetails.whatsappUrl ? (
-                <a
-                  href={contactDetails.whatsappUrl}
-                  className="mt-3 inline-flex rounded-full bg-emerald-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700"
-                >
-                  Book on WhatsApp
-                </a>
-              ) : (
-                <div className="mt-3 inline-flex rounded-full bg-stone-200 px-6 py-3 text-sm font-semibold text-slate-700">
-                  Coming Soon
-                </div>
-              )}
+              <a
+                href={contactDetails.whatsappUrl}
+                className="mt-3 inline-flex rounded-full bg-emerald-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700"
+                aria-label="Book on WhatsApp for Sindhu Suites"
+                rel="noopener noreferrer"
+              >
+                Book on WhatsApp
+              </a>
               <p className="mt-4 text-sm text-slate-600">
-                Phone: {contactDetails.phone}
+                WhatsApp: {contactDetails.whatsappNumber}
               </p>
             </div>
             <div className="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
@@ -242,11 +254,16 @@ export default function Home() {
                 </li>
                 <li>
                   <span className="block font-semibold text-slate-900">Email</span>
-                  <span className="mt-1 block">{contactDetails.email}</span>
+                  <a
+                    href={`mailto:${contactDetails.email}`}
+                    className="mt-1 block text-amber-700 underline-offset-2 hover:underline"
+                  >
+                    {contactDetails.email}
+                  </a>
                 </li>
                 <li>
                   <span className="block font-semibold text-slate-900">Address</span>
-                  <span className="mt-1 block">{contactDetails.address}</span>
+                  <span className="mt-1 block whitespace-pre-line">{contactDetails.address}</span>
                 </li>
               </ul>
             </div>

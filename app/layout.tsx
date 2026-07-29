@@ -13,9 +13,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sindhu Suites | Official Website",
+  title: "Official Sindhu Suites | Bengaluru",
   description:
-    "Official Sindhu Suites homepage with accommodation details, amenities, and contact information.",
+    "Official Sindhu Suites homepage in Bengaluru with verified contact details, amenities, and accommodation information.",
+  openGraph: {
+    title: "Official Sindhu Suites | Bengaluru",
+    description:
+      "Official Sindhu Suites homepage in Bengaluru with verified contact details, amenities, and accommodation information.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
