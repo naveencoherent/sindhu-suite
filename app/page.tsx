@@ -1,65 +1,251 @@
 import Image from "next/image";
 
+type Room = {
+  title: string;
+  description: string;
+  details: string[];
+  imageSrc: string;
+  imageAlt: string;
+};
+
+const heroImage = {
+  src: "/images/sindhu-suites-living-room.png",
+  alt: "Comfortable living room at Sindhu Suites with warm lighting and welcoming seating.",
+};
+
+const rooms: Room[] = [
+  {
+    title: "Deluxe Room",
+    description:
+      "A comfortable room designed for relaxed stays with simple, practical comforts.",
+    details: ["Queen bed", "Work desk", "Private bathroom"],
+    imageSrc: "/images/sindhu-suites-bedroom.png",
+    imageAlt: "Bright bedroom at Sindhu Suites with a neatly styled bed and soft natural light.",
+  },
+  {
+    title: "Family Room",
+    description:
+      "A spacious option that supports longer stays and easy shared living.",
+    details: ["Extra sleeping space", "Seating area", "Quiet setting"],
+    imageSrc: "/images/sindhu-suites-living-room.png",
+    imageAlt: "Open living area at Sindhu Suites with comfortable seating and a calm atmosphere.",
+  },
+];
+
+const amenities = [
+  "Wi-Fi access",
+  "Housekeeping service",
+  "Parking area",
+  "24-hour front desk support",
+];
+
+function SectionHeading({
+  eyebrow,
+  title,
+  description,
+}: {
+  eyebrow: string;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="max-w-2xl space-y-3">
+      <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-700">
+        {eyebrow}
+      </p>
+      <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+        {title}
+      </h2>
+      <p className="text-lg leading-8 text-slate-600">{description}</p>
+    </div>
+  );
+}
+
+function PropertyImage({
+  src,
+  alt,
+  className,
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+}) {
+  return (
+    <div className={`relative overflow-hidden ${className ?? ""}`}>
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes="(min-width: 1024px) 40vw, 100vw"
+        className="object-cover"
+        priority={src === heroImage.src}
+        loading={src === heroImage.src ? "eager" : undefined}
+      />
+    </div>
+  );
+}
+
+function RoomCard({ room }: { room: Room }) {
+  return (
+    <article className="overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-sm">
+      <div className="relative h-56 w-full border-b border-stone-200 bg-stone-100">
+        <PropertyImage
+          src={room.imageSrc}
+          alt={room.imageAlt}
+          className="h-full w-full"
+        />
+      </div>
+      <div className="space-y-4 p-6">
+        <div>
+          <h3 className="text-xl font-semibold text-slate-900">{room.title}</h3>
+          <p className="mt-2 text-sm leading-7 text-slate-600">{room.description}</p>
+        </div>
+        <ul className="space-y-2 text-sm text-slate-700">
+          {room.details.map((detail) => (
+            <li key={detail} className="flex items-center gap-2">
+              <span className="h-2.5 w-2.5 rounded-full bg-amber-600" />
+              <span>{detail}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </article>
+  );
+}
+
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <div className="min-h-screen bg-stone-50 text-slate-900">
+      <main id="top">
+        <section className="border-b border-stone-200 bg-gradient-to-br from-amber-50 via-white to-stone-100">
+          <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-20 lg:flex-row lg:items-center lg:px-8 lg:py-28">
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-700">
+                Official property website
+              </p>
+              <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+                Sindhu Suites
+              </h1>
+              <p className="mt-5 text-xl leading-8 text-slate-600">
+                Comfortable Stay in a Peaceful Location
+              </p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="https://wa.me/1234567890"
+                  className="rounded-full bg-amber-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-amber-800"
+                >
+                  Book on WhatsApp
+                </a>
+                <a
+                  href="#accommodation"
+                  className="rounded-full border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-stone-400 hover:bg-stone-100"
+                >
+                  View Rooms
+                </a>
+              </div>
+            </div>
+
+            <div className="w-full max-w-xl rounded-3xl border border-stone-200 bg-white/80 p-2 shadow-sm backdrop-blur">
+              <PropertyImage
+                src={heroImage.src}
+                alt={heroImage.alt}
+                className="h-80 w-full rounded-[1.25rem]"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section id="about" className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
+          <SectionHeading
+            eyebrow="About"
+            title="A welcoming stay in the heart of the property experience"
+            description="Sindhu Suites is the official website for the property, created to share a simple overview of the stay, accommodation options, and contact details in one place."
+          />
+          <div className="mt-8 rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
+            <p className="max-w-3xl text-lg leading-8 text-slate-700">
+              Welcome to Sindhu Suites, a comfortable place to stay in a peaceful location. This homepage brings together the core information for guests in a clear and accessible format, with a focus on the property experience and easy contact options.
+            </p>
+          </div>
+        </section>
+
+        <section id="accommodation" className="mx-auto max-w-6xl px-6 py-4 lg:px-8">
+          <SectionHeading
+            eyebrow="Accommodation"
+            title="Rooms designed for comfort and ease"
+            description="The accommodation section highlights a pair of room options with placeholder visuals that can be replaced with official property photos later."
+          />
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {rooms.map((room) => (
+              <RoomCard key={room.title} room={room} />
+            ))}
+          </div>
+        </section>
+
+        <section id="amenities" className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
+          <SectionHeading
+            eyebrow="Amenities"
+            title="Essential comforts and support"
+            description="The amenities listed below are placeholders so the page stays simple and can be updated with the official property information later."
+          />
+          <ul className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {amenities.map((amenity) => (
+              <li
+                key={amenity}
+                className="rounded-2xl border border-stone-200 bg-white p-5 text-sm font-medium text-slate-700 shadow-sm"
+              >
+                {amenity}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section id="contact" className="mx-auto max-w-6xl px-6 pb-20 lg:px-8">
+          <SectionHeading
+            eyebrow="Contact"
+            title="Reach out for bookings and questions"
+            description="Use the contact details below as a simple placeholder structure until the official property information is confirmed."
+          />
+          <div className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+            <div className="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-700">
+                WhatsApp
+              </p>
+              <a
+                href="https://wa.me/1234567890"
+                className="mt-3 inline-flex rounded-full bg-emerald-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700"
+              >
+                Book on WhatsApp
+              </a>
+              <p className="mt-4 text-sm text-slate-600">
+                Placeholder phone number: +1 234 567 8900
+              </p>
+            </div>
+            <div className="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
+              <ul className="space-y-4 text-sm text-slate-700">
+                <li>
+                  <span className="block font-semibold text-slate-900">Phone</span>
+                  <span className="mt-1 block">+1 234 567 8900</span>
+                </li>
+                <li>
+                  <span className="block font-semibold text-slate-900">Email</span>
+                  <span className="mt-1 block">hello@sindhusuites.example</span>
+                </li>
+                <li>
+                  <span className="block font-semibold text-slate-900">Address</span>
+                  <span className="mt-1 block">Placeholder address line 1, City, Country</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
       </main>
+
+      <footer className="border-t border-stone-200 bg-white/80">
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-8 text-sm text-slate-600 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+          <p className="font-semibold text-slate-900">Official Sindhu Suites Website</p>
+          <p>Booking partners: Airbnb, Booking.com, Agoda, and MakeMyTrip.</p>
+        </div>
+      </footer>
     </div>
   );
 }
