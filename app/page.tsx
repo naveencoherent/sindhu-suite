@@ -32,12 +32,14 @@ const rooms: Room[] = [
   },
 ];
 
-const amenities = [
-  "Wi-Fi access",
-  "Housekeeping service",
-  "Parking area",
-  "24-hour front desk support",
-];
+const amenities: string[] = [];
+
+const contactDetails = {
+  whatsappUrl: null as string | null,
+  phone: "Coming Soon",
+  email: "Coming Soon",
+  address: "Coming Soon",
+};
 
 function SectionHeading({
   eyebrow,
@@ -185,18 +187,24 @@ export default function Home() {
           <SectionHeading
             eyebrow="Amenities"
             title="Essential comforts and support"
-            description="The amenities listed below are placeholders so the page stays simple and can be updated with the official property information later."
+            description="The property amenities will be shared here as soon as they are confirmed."
           />
-          <ul className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {amenities.map((amenity) => (
-              <li
-                key={amenity}
-                className="rounded-2xl border border-stone-200 bg-white p-5 text-sm font-medium text-slate-700 shadow-sm"
-              >
-                {amenity}
-              </li>
-            ))}
-          </ul>
+          {amenities.length > 0 ? (
+            <ul className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              {amenities.map((amenity) => (
+                <li
+                  key={amenity}
+                  className="rounded-2xl border border-stone-200 bg-white p-5 text-sm font-medium text-slate-700 shadow-sm"
+                >
+                  {amenity}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div className="mt-8 rounded-2xl border border-stone-200 bg-white p-6 text-sm font-medium text-slate-700 shadow-sm">
+              Coming Soon
+            </div>
+          )}
         </section>
 
         <section id="contact" className="mx-auto max-w-6xl px-6 pb-20 lg:px-8">
@@ -210,29 +218,35 @@ export default function Home() {
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-700">
                 WhatsApp
               </p>
-              <a
-                href="https://wa.me/1234567890"
-                className="mt-3 inline-flex rounded-full bg-emerald-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700"
-              >
-                Book on WhatsApp
-              </a>
+              {contactDetails.whatsappUrl ? (
+                <a
+                  href={contactDetails.whatsappUrl}
+                  className="mt-3 inline-flex rounded-full bg-emerald-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700"
+                >
+                  Book on WhatsApp
+                </a>
+              ) : (
+                <div className="mt-3 inline-flex rounded-full bg-stone-200 px-6 py-3 text-sm font-semibold text-slate-700">
+                  Coming Soon
+                </div>
+              )}
               <p className="mt-4 text-sm text-slate-600">
-                Placeholder phone number: +1 234 567 8900
+                Phone: {contactDetails.phone}
               </p>
             </div>
             <div className="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
               <ul className="space-y-4 text-sm text-slate-700">
                 <li>
                   <span className="block font-semibold text-slate-900">Phone</span>
-                  <span className="mt-1 block">+1 234 567 8900</span>
+                  <span className="mt-1 block">{contactDetails.phone}</span>
                 </li>
                 <li>
                   <span className="block font-semibold text-slate-900">Email</span>
-                  <span className="mt-1 block">hello@sindhusuites.example</span>
+                  <span className="mt-1 block">{contactDetails.email}</span>
                 </li>
                 <li>
                   <span className="block font-semibold text-slate-900">Address</span>
-                  <span className="mt-1 block">Placeholder address line 1, City, Country</span>
+                  <span className="mt-1 block">{contactDetails.address}</span>
                 </li>
               </ul>
             </div>
@@ -243,7 +257,7 @@ export default function Home() {
       <footer className="border-t border-stone-200 bg-white/80">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-8 text-sm text-slate-600 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <p className="font-semibold text-slate-900">Official Sindhu Suites Website</p>
-          <p>Booking partners: Airbnb, Booking.com, Agoda, and MakeMyTrip.</p>
+          <p>Booking Partners: Airbnb, Booking.com, Agoda, and MakeMyTrip.</p>
         </div>
       </footer>
     </div>
