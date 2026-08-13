@@ -12,8 +12,8 @@ type Room = {
 };
 
 const heroImage = {
-  src: "/images/sindhu-suites-exterior.jpg",
-  alt: "Exterior view of Sindhu Suites with a clean façade and welcoming entrance.",
+  src: "/images/sindhu-suites-hero.jpg",
+  alt: "Modern living room with neutral seating, warm curtains, a television, and large windows.",
 };
 
 const rooms: Room[] = [
@@ -142,7 +142,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-stone-50 text-slate-900">
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-900/70 shadow-[0_12px_30px_-20px_rgba(15,23,42,0.9)] backdrop-blur-md">
+      <header className="sticky top-0 z-50 border-b-[0.5px] border-amber-400/45 bg-slate-900/70 shadow-[0_12px_30px_-20px_rgba(15,23,42,0.9)] backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
           <a href="#top" className="flex items-center gap-2" aria-label="Sindhu Suites home">
             <span className="text-lg font-semibold tracking-tight text-white">Sindhu Suites</span>
@@ -204,7 +204,7 @@ export default function Home() {
           <nav
             id="mobile-navigation"
             aria-label="Mobile navigation"
-            className="border-t border-white/10 bg-slate-900/85 md:hidden"
+            className="bg-slate-900/85 md:hidden"
           >
             <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-3 sm:px-6">
               {navLinks.map((link) => (
