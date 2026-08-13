@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 type Room = {
   title: string;
@@ -128,8 +131,103 @@ function RoomCard({ room }: { room: Room }) {
 }
 
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const navLinks = [
+    { label: "About", href: "#about" },
+    { label: "Rooms", href: "#accommodation" },
+    { label: "Amenities", href: "#amenities" },
+    { label: "Contact", href: "#contact" },
+  ];
+
   return (
     <div className="min-h-screen bg-stone-50 text-slate-900">
+      <header className="sticky top-0 z-50 border-b border-stone-200 bg-white/90 backdrop-blur-sm">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+          <a href="#top" className="text-lg font-semibold tracking-tight text-slate-900" aria-label="Sindhu Suites home">
+            Sindhu Suites
+          </a>
+
+          <nav
+            aria-label="Main navigation"
+            className="hidden items-center gap-6 md:flex"
+          >
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-slate-700 transition hover:text-amber-700"
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href={contactDetails.whatsappUrl}
+              className="inline-flex items-center rounded-full bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-700"
+              aria-label="WhatsApp for Sindhu Suites inquiries"
+              rel="noopener noreferrer"
+            >
+              WhatsApp
+            </a>
+          </nav>
+
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded-full border border-stone-300 bg-white p-2 text-slate-700 transition hover:border-stone-400 hover:bg-stone-100 md:hidden"
+            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
+            onClick={() => setIsMenuOpen((open) => !open)}
+          >
+            <span className="sr-only">Toggle navigation</span>
+            <svg
+              viewBox="0 0 24 24"
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+            >
+              {isMenuOpen ? (
+                <path d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              )}
+            </svg>
+          </button>
+        </div>
+
+        {isMenuOpen && (
+          <nav
+            id="mobile-navigation"
+            aria-label="Mobile navigation"
+            className="border-t border-stone-200 bg-white md:hidden"
+          >
+            <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-3 sm:px-6">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-stone-100 hover:text-amber-700"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ))}
+              <a
+                href={contactDetails.whatsappUrl}
+                className="mt-2 inline-flex items-center justify-center rounded-full bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-700"
+                aria-label="WhatsApp for Sindhu Suites inquiries"
+                rel="noopener noreferrer"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                WhatsApp
+              </a>
+            </div>
+          </nav>
+        )}
+      </header>
+
       <main id="top">
         <section className="border-b border-stone-200 bg-gradient-to-br from-amber-50 via-white to-stone-100">
           <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-20 lg:flex-row lg:items-center lg:px-8 lg:py-28">
