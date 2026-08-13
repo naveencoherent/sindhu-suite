@@ -12,8 +12,8 @@ type Room = {
 };
 
 const heroImage = {
-  src: "/images/sindhu-suites-living-room-hero.jpg",
-  alt: "Modern living room with neutral seating, warm curtains, a television, and large windows.",
+  src: "/images/sindhu-suites-exterior.jpg",
+  alt: "Exterior view of Sindhu Suites with a clean façade and welcoming entrance.",
 };
 
 const rooms: Room[] = [
@@ -142,10 +142,13 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-stone-50 text-slate-900">
-      <header className="sticky top-0 z-50 border-b border-stone-200 bg-white/90 backdrop-blur-sm">
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-900/70 shadow-[0_12px_30px_-20px_rgba(15,23,42,0.9)] backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-          <a href="#top" className="text-lg font-semibold tracking-tight text-slate-900" aria-label="Sindhu Suites home">
-            Sindhu Suites
+          <a href="#top" className="flex items-center gap-2" aria-label="Sindhu Suites home">
+            <span className="text-lg font-semibold tracking-tight text-white">Sindhu Suites</span>
+            <span className="text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-amber-300">
+              Official
+            </span>
           </a>
 
           <nav
@@ -156,14 +159,14 @@ export default function Home() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-slate-700 transition hover:text-amber-700"
+                className="text-sm font-medium text-slate-100 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900/70"
               >
                 {link.label}
               </a>
             ))}
             <a
               href={contactDetails.whatsappUrl}
-              className="inline-flex items-center rounded-full bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-700"
+              className="inline-flex items-center rounded-full bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900/70"
               aria-label="WhatsApp for Sindhu Suites inquiries"
               rel="noopener noreferrer"
             >
@@ -173,7 +176,7 @@ export default function Home() {
 
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-full border border-stone-300 bg-white p-2 text-slate-700 transition hover:border-stone-400 hover:bg-stone-100 md:hidden"
+            className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 p-2 text-slate-100 transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900/70 md:hidden"
             aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
@@ -201,14 +204,14 @@ export default function Home() {
           <nav
             id="mobile-navigation"
             aria-label="Mobile navigation"
-            className="border-t border-stone-200 bg-white md:hidden"
+            className="border-t border-white/10 bg-slate-900/85 md:hidden"
           >
             <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-3 sm:px-6">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-stone-100 hover:text-amber-700"
+                  className="rounded-xl px-3 py-2 text-sm font-medium text-slate-100 transition hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.label}
@@ -216,7 +219,7 @@ export default function Home() {
               ))}
               <a
                 href={contactDetails.whatsappUrl}
-                className="mt-2 inline-flex items-center justify-center rounded-full bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-700"
+                className="mt-2 inline-flex items-center justify-center rounded-full bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300"
                 aria-label="WhatsApp for Sindhu Suites inquiries"
                 rel="noopener noreferrer"
                 onClick={() => setIsMenuOpen(false)}
@@ -229,16 +232,28 @@ export default function Home() {
       </header>
 
       <main id="top">
-        <section className="border-b border-stone-200 bg-gradient-to-br from-amber-50 via-white to-stone-100">
-          <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-20 lg:flex-row lg:items-center lg:px-8 lg:py-28">
-            <div className="max-w-2xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-700">
+        <section className="relative isolate overflow-hidden border-b border-stone-200">
+          <div className="absolute inset-0">
+            <Image
+              src={heroImage.src}
+              alt={heroImage.alt}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-900/55 to-slate-950/25" />
+          </div>
+
+          <div className="relative mx-auto flex min-h-[calc(100svh-5rem)] max-w-6xl items-center px-6 py-20 sm:min-h-[38rem] lg:px-8 lg:py-28">
+            <div className="max-w-xl text-white">
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-300">
                 Official property website
               </p>
-              <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+              <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
                 Sindhu Suites
               </h1>
-              <p className="mt-5 text-xl leading-8 text-slate-600">
+              <p className="mt-5 text-xl leading-8 text-slate-200">
                 Comfortable Stay in a Peaceful Location
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
@@ -252,20 +267,10 @@ export default function Home() {
                 </a>
                 <a
                   href="#accommodation"
-                  className="rounded-full border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-stone-400 hover:bg-stone-100"
+                  className="rounded-full border border-white/50 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/80 hover:bg-white/20"
                 >
                   View Rooms
                 </a>
-              </div>
-            </div>
-
-            <div className="w-full max-w-2xl rounded-[2rem] border border-stone-200 bg-white/80 p-2 shadow-[0_30px_80px_-35px_rgba(15,23,42,0.45)] backdrop-blur-sm">
-              <div className="relative h-[20rem] overflow-hidden rounded-[1.5rem] sm:h-[24rem] lg:h-[34rem]">
-                <PropertyImage
-                  src={heroImage.src}
-                  alt={heroImage.alt}
-                  className="h-full w-full"
-                />
               </div>
             </div>
           </div>
