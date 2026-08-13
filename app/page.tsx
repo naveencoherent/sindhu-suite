@@ -12,8 +12,8 @@ type Room = {
 };
 
 const heroImage = {
-  src: "/images/sindhu-suites-living-room.png",
-  alt: "Comfortable living room at Sindhu Suites with warm lighting and welcoming seating.",
+  src: "/images/sindhu-suites-living-room-hero.jpg",
+  alt: "Modern living room with neutral seating, warm curtains, a television, and large windows.",
 };
 
 const rooms: Room[] = [
@@ -259,12 +259,14 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="w-full max-w-xl rounded-3xl border border-stone-200 bg-white/80 p-2 shadow-sm backdrop-blur">
-              <PropertyImage
-                src={heroImage.src}
-                alt={heroImage.alt}
-                className="h-80 w-full rounded-[1.25rem]"
-              />
+            <div className="w-full max-w-2xl rounded-[2rem] border border-stone-200 bg-white/80 p-2 shadow-[0_30px_80px_-35px_rgba(15,23,42,0.45)] backdrop-blur-sm">
+              <div className="relative h-[20rem] overflow-hidden rounded-[1.5rem] sm:h-[24rem] lg:h-[34rem]">
+                <PropertyImage
+                  src={heroImage.src}
+                  alt={heroImage.alt}
+                  className="h-full w-full"
+                />
+              </div>
             </div>
           </div>
         </section>
