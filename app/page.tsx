@@ -250,11 +250,11 @@ export default function Home() {
               <p className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-300">
                 Official property website
               </p>
-              <h1 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-4xl lg:whitespace-nowrap xl:text-5xl">
+              <h1 className="mt-4 font-serif text-2xl leading-tight font-semibold tracking-tight text-white sm:text-3xl lg:text-4xl xl:whitespace-nowrap">
                 Hotel Luxury. Home Comfort. Zero Compromise.
               </h1>
-              <p className="mt-5 text-xl leading-8 text-slate-200">
-                Comfortable Stay in a Peaceful Location
+              <p className="mt-5 max-w-2xl text-base leading-7 text-slate-100 sm:text-lg">
+                Experience spacious, fully furnished serviced apartments designed for effortless living. Whether you&apos;re here for a weekend or a month, step into a stay defined by elegance.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
