@@ -250,8 +250,8 @@ export default function Home() {
               <p className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-300">
                 Official property website
               </p>
-              <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Sindhu Suites
+              <h1 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-4xl lg:whitespace-nowrap xl:text-5xl">
+                Hotel Luxury. Home Comfort. Zero Compromise.
               </h1>
               <p className="mt-5 text-xl leading-8 text-slate-200">
                 Comfortable Stay in a Peaceful Location
