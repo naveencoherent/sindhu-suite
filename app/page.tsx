@@ -47,6 +47,40 @@ const amenities = [
   "Suitable for Business Travellers",
 ];
 
+type Property = {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+};
+
+const properties: Property[] = [
+  {
+    id: "central-location",
+    title: "Central Location",
+    description: "Conveniently situated for business and leisure travelers.",
+    icon: "location",
+  },
+  {
+    id: "modern-comfort",
+    title: "Modern Comfort",
+    description: "Thoughtfully designed spaces with contemporary amenities.",
+    icon: "home",
+  },
+  {
+    id: "verified-trust",
+    title: "Verified & Trusted",
+    description: "Official property with transparent information and direct contact.",
+    icon: "shield",
+  },
+  {
+    id: "flexible-stays",
+    title: "Flexible Stays",
+    description: "Options for short visits, extended stays, and corporate housing.",
+    icon: "calendar",
+  },
+];
+
 const contactDetails = {
   whatsappUrl:
     "https://wa.me/919449848432?text=Hello%20Sindhu%20Suites%2C%20I%20would%20like%20to%20enquire%20about%20availability%20for%20a%20stay.",
@@ -126,6 +160,61 @@ function RoomCard({ room }: { room: Room }) {
           ))}
         </ul>
       </div>
+    </article>
+  );
+}
+
+function PropertyIcon({ type }: { type: string }) {
+  const iconProps = {
+    className: "w-12 h-12 text-amber-600",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.5",
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+  };
+
+  switch (type) {
+    case "location":
+      return (
+        <svg {...iconProps}>
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" />
+        </svg>
+      );
+    case "home":
+      return (
+        <svg {...iconProps}>
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          <path d="M9 22v-12h6v12" />
+        </svg>
+      );
+    case "shield":
+      return (
+        <svg {...iconProps}>
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          <path d="M9 12l2 2 4-4" />
+        </svg>
+      );
+    case "calendar":
+      return (
+        <svg {...iconProps}>
+          <path d="M3 9h18V5H3v4zm0 0v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-8M9 2v4m6-4v4" />
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
+
+function PropertyCard({ property }: { property: Property }) {
+  return (
+    <article className="group rounded-2xl border border-amber-600/30 bg-slate-800 p-8 transition-all duration-300 hover:border-amber-600/60 hover:shadow-lg hover:shadow-amber-600/10">
+      <div className="mb-4 inline-flex rounded-lg bg-amber-600/10 p-3 transition-colors group-hover:bg-amber-600/20">
+        <PropertyIcon type={property.icon} />
+      </div>
+      <h3 className="text-lg font-semibold text-white">{property.title}</h3>
+      <p className="mt-2 text-sm leading-6 text-slate-300">{property.description}</p>
     </article>
   );
 }
@@ -286,6 +375,19 @@ export default function Home() {
             <p className="max-w-3xl text-lg leading-8 text-slate-700">
               Welcome to Sindhu Suites, a comfortable stay in Bengaluru with verified contact details, a clear overview of the property, and amenities that are shared directly on this official website.
             </p>
+          </div>
+        </section>
+
+        <section id="properties" className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
+          <div className="mb-12">
+            <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+              Why Choose Sindhu Suites
+            </h2>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {properties.map((property) => (
+              <PropertyCard key={property.id} property={property} />
+            ))}
           </div>
         </section>
 
