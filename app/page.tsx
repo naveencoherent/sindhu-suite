@@ -58,14 +58,14 @@ const localities: Locality[] = [
   {
     id: "hospitals",
     title: "Hospitals",
-    description: "Quality healthcare facilities nearby.",
+    description: "Very near to Ramaiah Medical College & Hospital",
     icon: "hospital",
   },
   {
-    id: "airport",
-    title: "Airport",
-    description: "Easy access for travel and arrivals.",
-    icon: "airport",
+    id: "iisc",
+    title: "IISc",
+    description: "Conveniently located within a 5 to 10-minute walk to IISc",
+    icon: "institute",
   },
   {
     id: "city-centre",
@@ -186,6 +186,12 @@ function PropertyIcon({ type }: { type: string }) {
       return (
         <svg {...iconProps}>
           <path d="M17.3 13.29l.02-.04c.84-1.99.27-4.27-1.39-5.58l-4.47-3.47c-1.66-1.29-4.05-1.29-5.71 0l-4.47 3.47c-1.66 1.31-2.23 3.59-1.39 5.58l.02.04M2 13h20M5 13l3 7h8l3-7" />
+        </svg>
+      );
+    case "institute":
+      return (
+        <svg {...iconProps} aria-label="Institute building">
+          <path d="M3 21h18M3 21V5h2V2h2v3h4V2h2v3h2v16M7 9h2v2H7V9zm4 0h2v2h-2V9zm4 0h2v2h-2V9zM7 14h2v2H7v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2z" />
         </svg>
       );
     case "city":
@@ -334,7 +340,7 @@ export default function Home() {
           </div>
 
           <div className="relative mx-auto flex min-h-[calc(100svh-5rem)] max-w-6xl items-center px-6 py-20 sm:min-h-[38rem] lg:px-8 lg:py-28">
-            <div className="max-w-xl text-white">
+            <div className="max-w-xl text-white lg:-translate-y-8">
               <p className="text-xs sm:text-sm font-semibold tracking-[0.12em] text-amber-300">
                 Spacious Serviced Apartments for the Discerning Traveler
               </p>
@@ -366,7 +372,7 @@ export default function Home() {
 
         <section className="relative">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 -top-16 -mb-16 sm:-top-20 sm:-mb-20 relative">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 -top-16 -mb-16 sm:-top-20 sm:-mb-20 lg:-top-32 lg:-mb-32 relative">
               {localities.map((locality) => (
                 <LocalityCard key={locality.id} locality={locality} />
               ))}
