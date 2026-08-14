@@ -247,8 +247,8 @@ export default function Home() {
 
           <div className="relative mx-auto flex min-h-[calc(100svh-5rem)] max-w-6xl items-center px-6 py-20 sm:min-h-[38rem] lg:px-8 lg:py-28">
             <div className="max-w-xl text-white">
-              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-300">
-                Official property website
+              <p className="text-xs sm:text-sm font-semibold tracking-[0.12em] text-amber-300">
+                Spacious Serviced Apartments for the Discerning Traveler
               </p>
               <h1 className="mt-4 font-serif text-2xl leading-tight font-semibold tracking-tight text-white sm:text-3xl lg:text-4xl xl:whitespace-nowrap">
                 Hotel Luxury. Home Comfort. Zero Compromise.
