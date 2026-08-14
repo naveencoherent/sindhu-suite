@@ -47,37 +47,37 @@ const amenities = [
   "Suitable for Business Travellers",
 ];
 
-type Property = {
+type Locality = {
   id: string;
   title: string;
   description: string;
   icon: string;
 };
 
-const properties: Property[] = [
+const localities: Locality[] = [
   {
-    id: "central-location",
-    title: "Central Location",
-    description: "Conveniently situated for business and leisure travelers.",
-    icon: "location",
+    id: "hospitals",
+    title: "Hospitals",
+    description: "Quality healthcare facilities nearby.",
+    icon: "hospital",
   },
   {
-    id: "modern-comfort",
-    title: "Modern Comfort",
-    description: "Thoughtfully designed spaces with contemporary amenities.",
-    icon: "home",
+    id: "airport",
+    title: "Airport",
+    description: "Easy access for travel and arrivals.",
+    icon: "airport",
   },
   {
-    id: "verified-trust",
-    title: "Verified & Trusted",
-    description: "Official property with transparent information and direct contact.",
-    icon: "shield",
+    id: "city-centre",
+    title: "City Centre",
+    description: "Close to shopping, dining, and entertainment.",
+    icon: "city",
   },
   {
-    id: "flexible-stays",
-    title: "Flexible Stays",
-    description: "Options for short visits, extended stays, and corporate housing.",
-    icon: "calendar",
+    id: "transport",
+    title: "Transport",
+    description: "Connected by buses, trains, and taxis.",
+    icon: "transport",
   },
 ];
 
@@ -176,30 +176,28 @@ function PropertyIcon({ type }: { type: string }) {
   };
 
   switch (type) {
-    case "location":
+    case "hospital":
       return (
         <svg {...iconProps}>
-          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" />
+          <path d="M3 9h18M3 15h18M9 3v18M15 3v18M6 6h3v3H6V6zm9 0h3v3h-3V6zm-9 9h3v3H6v-3zm9 0h3v3h-3v-3z" />
         </svg>
       );
-    case "home":
+    case "airport":
       return (
         <svg {...iconProps}>
-          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-          <path d="M9 22v-12h6v12" />
+          <path d="M17.3 13.29l.02-.04c.84-1.99.27-4.27-1.39-5.58l-4.47-3.47c-1.66-1.29-4.05-1.29-5.71 0l-4.47 3.47c-1.66 1.31-2.23 3.59-1.39 5.58l.02.04M2 13h20M5 13l3 7h8l3-7" />
         </svg>
       );
-    case "shield":
+    case "city":
       return (
         <svg {...iconProps}>
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-          <path d="M9 12l2 2 4-4" />
+          <path d="M3 21h18M5 21V5h3V2h2v3h4V2h2v3h3v16M7 9h2M7 13h2M13 9h2M13 13h2" />
         </svg>
       );
-    case "calendar":
+    case "transport":
       return (
         <svg {...iconProps}>
-          <path d="M3 9h18V5H3v4zm0 0v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-8M9 2v4m6-4v4" />
+          <path d="M2 10h20M4 10v7c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-7M14 10v7c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-7M2 10h20v-3c0-1.1.9-2 2-2v0c1.1 0 2 .9 2 2v3M6 19a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm12 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0z" />
         </svg>
       );
     default:
@@ -207,14 +205,15 @@ function PropertyIcon({ type }: { type: string }) {
   }
 }
 
-function PropertyCard({ property }: { property: Property }) {
+
+function LocalityCard({ locality }: { locality: Locality }) {
   return (
-    <article className="group rounded-2xl border border-amber-600/30 bg-slate-800 p-8 transition-all duration-300 hover:border-amber-600/60 hover:shadow-lg hover:shadow-amber-600/10">
-      <div className="mb-4 inline-flex rounded-lg bg-amber-600/10 p-3 transition-colors group-hover:bg-amber-600/20">
-        <PropertyIcon type={property.icon} />
+    <article className="group rounded-2xl border border-slate-600/30 bg-gradient-to-br from-[#162235] via-[#1f3047] to-[#2d4059] p-6 shadow-lg transition-all duration-300 hover:border-slate-500/50 hover:shadow-xl">
+      <div className="mb-3 inline-flex rounded-lg bg-amber-600/20 p-3 transition-colors group-hover:bg-amber-600/30">
+        <PropertyIcon type={locality.icon} />
       </div>
-      <h3 className="text-lg font-semibold text-white">{property.title}</h3>
-      <p className="mt-2 text-sm leading-6 text-slate-300">{property.description}</p>
+      <h3 className="text-base font-semibold text-white">{locality.title}</h3>
+      <p className="mt-2 text-sm leading-5 text-slate-200">{locality.description}</p>
     </article>
   );
 }
@@ -365,6 +364,16 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="relative bg-[#101a29] py-8 lg:py-12">
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 -mt-16">
+              {localities.map((locality) => (
+                <LocalityCard key={locality.id} locality={locality} />
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section id="about" className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
           <SectionHeading
             eyebrow="About"
@@ -378,20 +387,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="properties" className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
-          <div className="mb-12">
-            <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-              Why Choose Sindhu Suites
-            </h2>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {properties.map((property) => (
-              <PropertyCard key={property.id} property={property} />
-            ))}
-          </div>
-        </section>
-
-        <section id="accommodation" className="mx-auto max-w-6xl px-6 py-4 lg:px-8">
+        <section id="accommodation" className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
           <SectionHeading
             eyebrow="Accommodation"
             title="Rooms designed for comfort and ease"
