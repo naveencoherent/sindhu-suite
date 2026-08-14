@@ -166,7 +166,7 @@ function RoomCard({ room }: { room: Room }) {
 
 function PropertyIcon({ type }: { type: string }) {
   const iconProps = {
-    className: "w-12 h-12 text-amber-600",
+    className: "w-12 h-12 text-white",
     viewBox: "0 0 24 24",
     fill: "none",
     stroke: "currentColor",
@@ -208,8 +208,8 @@ function PropertyIcon({ type }: { type: string }) {
 
 function LocalityCard({ locality }: { locality: Locality }) {
   return (
-    <article className="group rounded-2xl border border-slate-600/30 bg-gradient-to-br from-[#162235] via-[#1f3047] to-[#2d4059] p-6 shadow-lg transition-all duration-300 hover:border-slate-500/50 hover:shadow-xl">
-      <div className="mb-3 inline-flex rounded-lg bg-amber-600/20 p-3 transition-colors group-hover:bg-amber-600/30">
+    <article className="group rounded-2xl border border-amber-500/20 p-6 shadow-lg transition-all duration-300 hover:border-amber-500/40 hover:shadow-xl" style={{ backgroundColor: "rgba(15, 23, 42, 0.75)", backdropFilter: "blur(8px)" }}>
+      <div className="mb-3 inline-flex rounded-full bg-amber-500 p-3 transition-colors group-hover:bg-amber-600">
         <PropertyIcon type={locality.icon} />
       </div>
       <h3 className="text-base font-semibold text-white">{locality.title}</h3>
