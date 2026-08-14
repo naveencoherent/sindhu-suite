@@ -364,9 +364,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="relative bg-[#101a29] py-8 lg:py-12">
+        <section className="relative">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 -mt-16">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 -top-16 -mb-16 sm:-top-20 sm:-mb-20 relative">
               {localities.map((locality) => (
                 <LocalityCard key={locality.id} locality={locality} />
               ))}
