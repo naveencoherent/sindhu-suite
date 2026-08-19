@@ -394,9 +394,9 @@ export default function Home() {
 
         <section id="about" className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
           <SectionHeading
-            eyebrow="About"
-            title="A welcoming stay in the heart of the property experience"
-            description="Sindhu Suites is the official property website for a comfortable stay in Bengaluru, with verified contact details and amenities shared in one place."
+            eyebrow="Welcome to Sindhu Suites"
+            title="Premium 2 BHK Serviced Apartments Near M.S. Ramaiah Hospital, Bengaluru"
+            description="Your home away from home—experience fully furnished, luxury 2 BHK apartments designed for business travelers, families, and long-term stays in North Bengaluru."
           />
           <div className="mt-8 rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
             <p className="max-w-3xl text-lg leading-8 text-slate-700">
