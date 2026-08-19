@@ -398,9 +398,12 @@ export default function Home() {
             title="Premium 2 BHK Serviced Apartments Near M.S. Ramaiah Hospital, Bengaluru"
             description="Your home away from home—experience fully furnished, luxury 2 BHK apartments designed for business travelers, families, and long-term stays in North Bengaluru."
           />
-          <div className="mt-8 rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
-            <p className="max-w-3xl text-lg leading-8 text-slate-700">
-              Welcome to Sindhu Suites, a comfortable stay in Bengaluru with verified contact details, a clear overview of the property, and amenities that are shared directly on this official website.
+          <div className="mt-8 max-w-3xl space-y-4 text-lg leading-8 text-slate-700">
+            <p>
+              Welcome to <strong>Sindhu Suites</strong>, your premier destination for luxury serviced apartments in RMV 2nd Stage, Bengaluru. Whether you are visiting for business, medical travel near M.S. Ramaiah Hospital, or a relaxed family vacation, our modern 2 BHK suites offer the perfect blend of high-end hotel convenience and home comfort.
+            </p>
+            <p>
+              Each fully furnished apartment features spacious living areas, high-speed Wi-Fi, air-conditioned bedrooms, clean private bathrooms, and a fully equipped kitchen complete with modern appliances. Conveniently located near IISc, Yeshwanthpur, and Orion Mall, Sindhu Suites offers easy connectivity to North Bangalore&apos;s top business, healthcare, and dining hubs.
             </p>
           </div>
         </section>
