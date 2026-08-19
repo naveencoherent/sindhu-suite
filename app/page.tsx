@@ -52,6 +52,7 @@ type Locality = {
   title: string;
   description: string;
   icon: string;
+  link?: string;
 };
 
 const localities: Locality[] = [
@@ -68,10 +69,11 @@ const localities: Locality[] = [
     icon: "institute",
   },
   {
-    id: "city-centre",
-    title: "City Centre",
-    description: "Close to shopping, dining, and entertainment.",
-    icon: "city",
+    id: "cpri",
+    title: "CPRI",
+    description: "Walkable distance from Central Power Research Institute (CPRI).",
+    icon: "institute",
+    link: "https://cpri.res.in/en",
   },
   {
     id: "transport",
@@ -213,7 +215,7 @@ function PropertyIcon({ type }: { type: string }) {
 
 
 function LocalityCard({ locality }: { locality: Locality }) {
-  return (
+  const cardContent = (
     <article className="group rounded-2xl border border-amber-500/20 p-6 shadow-lg transition-all duration-300 hover:border-amber-500/40 hover:shadow-xl" style={{ backgroundColor: "rgba(15, 23, 42, 0.75)", backdropFilter: "blur(8px)" }}>
       <div className="mb-3 inline-flex rounded-full bg-amber-500 p-3 transition-colors group-hover:bg-amber-600">
         <PropertyIcon type={locality.icon} />
@@ -222,6 +224,16 @@ function LocalityCard({ locality }: { locality: Locality }) {
       <p className="mt-2 text-sm leading-5 text-slate-200">{locality.description}</p>
     </article>
   );
+
+  if (locality.link) {
+    return (
+      <a href={locality.link} target="_blank" rel="noopener noreferrer">
+        {cardContent}
+      </a>
+    );
+  }
+
+  return cardContent;
 }
 
 export default function Home() {
