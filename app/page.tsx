@@ -16,6 +16,29 @@ const heroImage = {
   alt: "Modern living room with neutral seating, warm curtains, a television, and large windows.",
 };
 
+const propertyShowcaseImages = [
+  {
+    src: "/images/sindhu-suites-hero.jpg",
+    alt: "Modern living room with warm neutral colors and ample natural light at Sindhu Suites.",
+  },
+  {
+    src: "/images/sindhu-suites-bedroom.png",
+    alt: "Bright bedroom with a neatly styled bed and soft daylight at Sindhu Suites.",
+  },
+  {
+    src: "/images/sindhu-suites-living-room.png",
+    alt: "Comfortable seating area with a relaxed atmosphere in the Sindhu Suites living room.",
+  },
+  {
+    src: "/images/sindhu-suites-desktop.jpg.png",
+    alt: "Contemporary workspace and stylish interior details at Sindhu Suites.",
+  },
+  {
+    src: "/images/sindhu-suites-mobile.jpg.png",
+    alt: "Bedroom and living room interior details captured in a close-up property shot.",
+  },
+];
+
 const rooms: Room[] = [
   {
     title: "Deluxe Room",
@@ -96,13 +119,15 @@ function SectionHeading({
   eyebrow,
   title,
   description,
+  className,
 }: {
   eyebrow: string;
   title: string;
   description: string;
+  className?: string;
 }) {
   return (
-    <div className="max-w-2xl space-y-3">
+    <div className={`max-w-2xl space-y-3 ${className ?? ""}`}>
       <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-700">
         {eyebrow}
       </p>
@@ -393,26 +418,132 @@ export default function Home() {
         </section>
 
         <section id="about" className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
-          <SectionHeading
-            eyebrow="Welcome to Sindhu Suites"
-            title="Premium 2 BHK Serviced Apartments Near M.S. Ramaiah Hospital, Bengaluru"
-            description="Your home away from home—experience fully furnished, luxury 2 BHK apartments designed for business travelers, families, and long-term stays in North Bengaluru."
-          />
-          <div className="mt-8 max-w-3xl space-y-4 text-lg leading-8 text-slate-700">
-            <p>
-              Welcome to <strong>Sindhu Suites</strong>, your premier destination for luxury serviced apartments in RMV 2nd Stage, Bengaluru. Whether you are visiting for business, medical travel near M.S. Ramaiah Hospital, or a relaxed family vacation, our modern 2 BHK suites offer the perfect blend of high-end hotel convenience and home comfort.
-            </p>
-            <p>
-              Each fully furnished apartment features spacious living areas, high-speed Wi-Fi, air-conditioned bedrooms, clean private bathrooms, and a fully equipped kitchen complete with modern appliances. Conveniently located near IISc, Yeshwanthpur, and Orion Mall, Sindhu Suites offers easy connectivity to North Bangalore&apos;s top business, healthcare, and dining hubs.
-            </p>
+          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div>
+              <div className="space-y-3">
+                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-700">
+                  Welcome to Sindhu Suites
+                </p>
+                <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+                  Premium 2 BHK Serviced Apartments Near M.S. Ramaiah Hospital, Bengaluru
+                </h2>
+              </div>
+
+              <div className="mt-8 space-y-4 text-lg leading-8 text-slate-700">
+                <p>
+                  Welcome to <strong>Sindhu Suites</strong>, your premier destination for luxury serviced apartments in RMV 2nd Stage, Bengaluru. Whether you are visiting for business, medical travel near M.S. Ramaiah Hospital, or a relaxed family vacation, our modern 2 BHK suites offer the perfect blend of high-end hotel convenience and home comfort.
+                </p>
+                <p>
+                  Each fully furnished apartment features spacious living areas, high-speed Wi-Fi, air-conditioned bedrooms, clean private bathrooms, and a fully equipped kitchen complete with modern appliances. Conveniently located near IISc, Yeshwanthpur, and Orion Mall, Sindhu Suites offers easy connectivity to North Bangalore&apos;s top business, healthcare, and dining hubs.
+                </p>
+              </div>
+            </div>
+
+            <div className="property-showcase" aria-label="Sindhu Suites property gallery">
+              <div className="property-showcase__viewport">
+                <div className="property-showcase__column">
+                  <div className="property-showcase__track property-showcase__track--up" style={{ ["--duration" as string]: "22s" }}>
+                    <div className="property-showcase__group">
+                      {propertyShowcaseImages.map((image) => (
+                        <div key={`${image.src}-a`} className="property-showcase__card">
+                          <Image
+                            src={image.src}
+                            alt={image.alt}
+                            fill
+                            sizes="(min-width: 1280px) 20vw, (min-width: 768px) 23vw, 42vw"
+                            className="object-cover"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    <div className="property-showcase__group" aria-hidden="true">
+                      {propertyShowcaseImages.map((image) => (
+                        <div key={`${image.src}-b`} className="property-showcase__card">
+                          <Image
+                            src={image.src}
+                            alt={image.alt}
+                            fill
+                            sizes="(min-width: 1280px) 20vw, (min-width: 768px) 23vw, 42vw"
+                            className="object-cover"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="property-showcase__column">
+                  <div className="property-showcase__track property-showcase__track--down" style={{ ["--duration" as string]: "27s" }}>
+                    <div className="property-showcase__group">
+                      {[...propertyShowcaseImages].reverse().map((image) => (
+                        <div key={`${image.src}-c`} className="property-showcase__card">
+                          <Image
+                            src={image.src}
+                            alt={image.alt}
+                            fill
+                            sizes="(min-width: 1280px) 20vw, (min-width: 768px) 23vw, 42vw"
+                            className="object-cover"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    <div className="property-showcase__group" aria-hidden="true">
+                      {[...propertyShowcaseImages].reverse().map((image) => (
+                        <div key={`${image.src}-d`} className="property-showcase__card">
+                          <Image
+                            src={image.src}
+                            alt={image.alt}
+                            fill
+                            sizes="(min-width: 1280px) 20vw, (min-width: 768px) 23vw, 42vw"
+                            className="object-cover"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="property-showcase__column">
+                  <div className="property-showcase__track property-showcase__track--up" style={{ ["--duration" as string]: "24s" }}>
+                    <div className="property-showcase__group">
+                      {propertyShowcaseImages.map((image) => (
+                        <div key={`${image.src}-e`} className="property-showcase__card">
+                          <Image
+                            src={image.src}
+                            alt={image.alt}
+                            fill
+                            sizes="(min-width: 1280px) 20vw, (min-width: 768px) 23vw, 42vw"
+                            className="object-cover"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    <div className="property-showcase__group" aria-hidden="true">
+                      {propertyShowcaseImages.map((image) => (
+                        <div key={`${image.src}-f`} className="property-showcase__card">
+                          <Image
+                            src={image.src}
+                            alt={image.alt}
+                            fill
+                            sizes="(min-width: 1280px) 20vw, (min-width: 768px) 23vw, 42vw"
+                            className="object-cover"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
         <section id="accommodation" className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
           <SectionHeading
-            eyebrow="Accommodation"
-            title="Rooms designed for comfort and ease"
-            description="The accommodation section highlights a pair of room options available at Sindhu Suites."
+            eyebrow="Private 2BHK apartments"
+            title="Book Your Entire 2BHK Apartment | Private Stay for Up to 4 Guests"
+            description="Enjoy total privacy with a whole-home vacation rental designed for up to four guests—never a shared space. Choose between our MC and MR 2BHK apartments, both featuring a master king bedroom, a cozy queen bedroom, a fully equipped independent kitchen, and a spacious living room."
+            className="max-w-none"
           />
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {rooms.map((room) => (
