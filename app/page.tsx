@@ -11,7 +11,7 @@ type Room = {
   ctaLabel: string;
 };
 
-const heroImageconst heroImage = {
+const heroImage = {
   src: "/images/sindhu-suites-hero.jpg",
   alt: "Modern living room with neutral seating, warm curtains, a television, and large windows.",
 };
@@ -66,7 +66,7 @@ const rooms: Room[] = [
   },
 ];
 
-const amenitiesconst amenities = [
+const amenities = [
   "Free Wi-Fi",
   "Air Conditioning",
   "Parking",
@@ -209,7 +209,7 @@ function RoomCard({ room }: { room: Room }) {
   );
 }
 
-function PropertyIconfunction PropertyIcon({ type }: { type: string }) {
+function PropertyIcon({ type }: { type: string }) {
   const iconProps = {
     className: "w-12 h-12 text-white",
     viewBox: "0 0 24 24",
@@ -576,7 +576,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="amenities"        <section id="amenities" className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
+        <section id="amenities" className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
           <SectionHeading
             eyebrow="Amenities"
             title="Essential comforts and support"
