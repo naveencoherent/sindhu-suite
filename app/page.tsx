@@ -4,14 +4,14 @@ import Image from "next/image";
 import { useState } from "react";
 
 type Room = {
+  eyebrow: string;
   title: string;
   description: string;
   details: string[];
-  imageSrc: string;
-  imageAlt: string;
+  ctaLabel: string;
 };
 
-const heroImage = {
+const heroImageconst heroImage = {
   src: "/images/sindhu-suites-hero.jpg",
   alt: "Modern living room with neutral seating, warm curtains, a television, and large windows.",
 };
@@ -41,24 +41,32 @@ const propertyShowcaseImages = [
 
 const rooms: Room[] = [
   {
-    title: "Deluxe Room",
-    description:
-      "A comfortable room designed for relaxed stays with simple, practical comforts.",
-    details: ["Queen bed", "Work desk", "Private bathroom"],
-    imageSrc: "/images/sindhu-suites-bedroom.png",
-    imageAlt: "Bright bedroom at Sindhu Suites with a neatly styled bed and soft natural light.",
+    eyebrow: "Apartment MC",
+    title: "MC Apartment",
+    description: "A calm, complete home base for your Bengaluru stay.",
+    details: [
+      "Entire 2BHK",
+      "Up to 4 guests",
+      "King + queen bed",
+      "Kitchen + hall",
+    ],
+    ctaLabel: "View MC rooms & select",
   },
   {
-    title: "Family Room",
-    description:
-      "A spacious option that supports longer stays and easy shared living.",
-    details: ["Extra sleeping space", "Seating area", "Quiet setting"],
-    imageSrc: "/images/sindhu-suites-living-room.png",
-    imageAlt: "Open living area at Sindhu Suites with comfortable seating and a calm atmosphere.",
+    eyebrow: "Apartment MR",
+    title: "MR Apartment",
+    description: "The same considered comforts, with room for everyone.",
+    details: [
+      "Entire 2BHK",
+      "Up to 4 guests",
+      "King + queen bed",
+      "Kitchen + hall",
+    ],
+    ctaLabel: "View MR rooms & select",
   },
 ];
 
-const amenities = [
+const amenitiesconst amenities = [
   "Free Wi-Fi",
   "Air Conditioning",
   "Parking",
@@ -165,33 +173,43 @@ function PropertyImage({
 
 function RoomCard({ room }: { room: Room }) {
   return (
-    <article className="overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-sm">
-      <div className="relative h-56 w-full border-b border-stone-200 bg-stone-100">
-        <PropertyImage
-          src={room.imageSrc}
-          alt={room.imageAlt}
-          className="h-full w-full"
-        />
-      </div>
-      <div className="space-y-4 p-6">
-        <div>
-          <h3 className="text-xl font-semibold text-slate-900">{room.title}</h3>
-          <p className="mt-2 text-sm leading-7 text-slate-600">{room.description}</p>
-        </div>
-        <ul className="space-y-2 text-sm text-slate-700">
-          {room.details.map((detail) => (
-            <li key={detail} className="flex items-center gap-2">
-              <span className="h-2.5 w-2.5 rounded-full bg-amber-600" />
-              <span>{detail}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <article className="border border-stone-300 bg-white p-7 sm:p-8">
+      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-700">
+        {room.eyebrow}
+      </p>
+
+      <h3 className="mt-2 font-serif text-3xl text-slate-900 sm:text-4xl">
+        {room.title}
+      </h3>
+
+      <p className="mt-5 text-base leading-7 text-slate-700">
+        {room.description}
+      </p>
+
+      <ul className="mt-5 flex flex-wrap gap-2 text-xs text-slate-700">
+        {room.details.map((detail) => (
+          <li
+            key={detail}
+            className="rounded-full bg-stone-100 px-3 py-2"
+          >
+            {detail}
+          </li>
+        ))}
+      </ul>
+
+      <a
+        href={contactDetails.whatsappUrl}
+        className="mt-5 flex min-h-12 w-full items-center justify-center border border-slate-700 px-5 py-3 text-center text-sm text-slate-800 transition hover:bg-slate-800 hover:text-white"
+        aria-label={`${room.ctaLabel} on WhatsApp`}
+        rel="noopener noreferrer"
+      >
+        {room.ctaLabel}
+      </a>
     </article>
   );
 }
 
-function PropertyIcon({ type }: { type: string }) {
+function PropertyIconfunction PropertyIcon({ type }: { type: string }) {
   const iconProps = {
     className: "w-12 h-12 text-white",
     viewBox: "0 0 24 24",
@@ -538,21 +556,27 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="accommodation" className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
-          <SectionHeading
-            eyebrow="Private 2BHK apartments"
-            title="Book Your Entire 2BHK Apartment | Private Stay for Up to 4 Guests"
-            description="Enjoy total privacy with a whole-home vacation rental designed for up to four guests—never a shared space. Choose between our MC and MR 2BHK apartments, both featuring a master king bedroom, a cozy queen bedroom, a fully equipped independent kitchen, and a spacious living room."
-            className="max-w-none"
-          />
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {rooms.map((room) => (
-              <RoomCard key={room.title} room={room} />
-            ))}
+        <section
+          id="accommodation"
+          className="border-y border-stone-200 bg-stone-100"
+        >
+          <div className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
+            <SectionHeading
+              eyebrow="Private 2BHK apartments"
+              title="Book Your Entire 2BHK Apartment | Private Stay for Up to 4 Guests"
+              description="Enjoy total privacy with a whole-home vacation rental designed for up to four guests—never a shared space. Choose between our MC and MR 2BHK apartments, both featuring a master king bedroom, a cozy queen bedroom, a fully equipped independent kitchen, and a spacious living room."
+              className="max-w-none"
+            />
+
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
+              {rooms.map((room) => (
+                <RoomCard key={room.title} room={room} />
+              ))}
+            </div>
           </div>
         </section>
 
-        <section id="amenities" className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
+        <section id="amenities"        <section id="amenities" className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
           <SectionHeading
             eyebrow="Amenities"
             title="Essential comforts and support"
