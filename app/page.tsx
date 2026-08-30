@@ -9,6 +9,8 @@ type Room = {
   description: string;
   details: string[];
   ctaLabel: string;
+  imageSrc: string;
+  imageAlt: string;
 };
 
 const heroImage = {
@@ -30,10 +32,6 @@ const propertyShowcaseImages = [
     alt: "Comfortable seating area with a relaxed atmosphere in the Sindhu Suites living room.",
   },
   {
-    src: "/images/sindhu-suites-desktop.jpg.png",
-    alt: "Contemporary workspace and stylish interior details at Sindhu Suites.",
-  },
-  {
     src: "/images/sindhu-suites-mobile.jpg.png",
     alt: "Bedroom and living room interior details captured in a close-up property shot.",
   },
@@ -43,6 +41,8 @@ const rooms: Room[] = [
   {
     eyebrow: "Apartment MC",
     title: "MC Apartment",
+    imageSrc: "/images/mc-apartment.jpg",
+    imageAlt: "Interior of the MC Apartment at Sindhu Suites.",
     description: "A calm, complete home base for your Bengaluru stay.",
     details: [
       "Entire 2BHK",
@@ -55,6 +55,8 @@ const rooms: Room[] = [
   {
     eyebrow: "Apartment MR",
     title: "MR Apartment",
+    imageSrc: "/images/mr-apartment.jpg",
+    imageAlt: "Interior of the MR Apartment at Sindhu Suites.",
     description: "The same considered comforts, with room for everyone.",
     details: [
       "Entire 2BHK",
@@ -174,6 +176,16 @@ function PropertyImage({
 function RoomCard({ room }: { room: Room }) {
   return (
     <article className="border border-stone-300 bg-white p-7 sm:p-8">
+      <div className="relative mb-6 aspect-[16/10] overflow-hidden bg-stone-200">
+        <Image
+          src={room.imageSrc}
+          alt={room.imageAlt}
+          fill
+          sizes="(min-width: 768px) 50vw, 100vw"
+          className="object-cover"
+        />
+      </div>
+
       <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-700">
         {room.eyebrow}
       </p>
