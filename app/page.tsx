@@ -68,16 +68,49 @@ const rooms: Room[] = [
   },
 ];
 
-const amenities = [
-  "Free Wi-Fi",
-  "Air Conditioning",
-  "Parking",
-  "Kitchen",
-  "Housekeeping",
-  "Laundry Services",
-  "Airport Transfers",
-  "Long-Term Stays",
-  "Suitable for Business Travellers",
+const stayComforts = [
+  {
+    title: "Full kitchen",
+    icon: "kitchen",
+    badge: "LPG + microwave",
+    description:
+      "Cook at home with an LPG gas stove, microwave oven, fridge, and essentials for coffee and tea.",
+  },
+  {
+    title: "Two private bedrooms",
+    icon: "bedrooms",
+    badge: "King + queen",
+    description:
+      "King and queen bedrooms, both air-conditioned and each connected to a bathroom with a water heater.",
+  },
+  {
+    title: "Generous TV hall",
+    icon: "television",
+    badge: '48" Smart TV',
+    description:
+      "Relax in a large hall with a sofa set and 48-inch smart TV.",
+  },
+  {
+    title: "Stay connected",
+    icon: "wifi",
+    badge: "Free Wi-Fi",
+    description:
+      "Complimentary Wi-Fi throughout your apartment.",
+  },
+  {
+    title: "Everyday essentials",
+    icon: "essentials",
+    badge: "Hair dryer + iron",
+    description:
+      "Hair dryer, ironing table, and the practical details that make settling in simple.",
+  },
+  {
+    title: "Easy arrival",
+    icon: "parking",
+    badge: "Guest parking",
+    description:
+      "Car parking available for guests.",
+  },
 ];
 
 type Locality = {
@@ -124,6 +157,96 @@ const contactDetails = {
   email: "hello@sifin.in",
   address: "384/A, RMV 2nd Stage, 2nd Block,\nBengaluru, Karnataka – 560094\nIndia",
 };
+
+function ComfortIcon({ type }: { type: string }) {
+  let icon;
+
+  switch (type) {
+    case "kitchen":
+      icon = (
+        <>
+          <path d="M4 11h16" />
+          <path d="M6 11v7h12v-7" />
+          <path d="M8 7c0-1 1-1.5 1-2.5S8 3 8 2" />
+          <path d="M12 7c0-1 1-1.5 1-2.5S12 3 12 2" />
+          <path d="M16 7c0-1 1-1.5 1-2.5S16 3 16 2" />
+          <path d="M2 18h20" />
+        </>
+      );
+      break;
+
+    case "bedrooms":
+      icon = (
+        <>
+          <path d="M3 19V9" />
+          <path d="M21 19v-6a3 3 0 0 0-3-3H8a5 5 0 0 0-5 5v1h18" />
+          <path d="M7 10V7h5a3 3 0 0 1 3 3" />
+          <path d="M3 16h18" />
+        </>
+      );
+      break;
+
+    case "television":
+      icon = (
+        <>
+          <rect x="3" y="5" width="18" height="12" rx="2" />
+          <path d="m8 21 4-4 4 4" />
+          <path d="M9 21h6" />
+        </>
+      );
+      break;
+
+    case "wifi":
+      icon = (
+        <>
+          <path d="M5 12.5a10 10 0 0 1 14 0" />
+          <path d="M8.5 16a5 5 0 0 1 7 0" />
+          <path d="M12 20h.01" />
+          <path d="M2 9a15 15 0 0 1 20 0" />
+        </>
+      );
+      break;
+
+    case "essentials":
+      icon = (
+        <>
+          <path d="M5 20h14" />
+          <path d="M7 20V10h10v10" />
+          <path d="M9 10V6h6v4" />
+          <path d="M10 6V3h4v3" />
+          <path d="M10 14h4" />
+        </>
+      );
+      break;
+
+    case "parking":
+      icon = (
+        <>
+          <circle cx="12" cy="12" r="9" />
+          <path d="M10 17V7h3a3 3 0 0 1 0 6h-3" />
+        </>
+      );
+      break;
+
+    default:
+      icon = <circle cx="12" cy="12" r="8" />;
+  }
+
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-7 w-7"
+    >
+      {icon}
+    </svg>
+  );
+}
 
 function SectionHeading({
   eyebrow,
@@ -588,28 +711,51 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="amenities" className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
-          <SectionHeading
-            eyebrow="Amenities"
-            title="Essential comforts and support"
-            description="The amenities below are verified and shared directly on this official property website."
-          />
-          <ul className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {amenities.map((amenity) => (
-              <li
-                key={amenity}
-                className="rounded-2xl border border-stone-200 bg-white p-5 text-sm font-medium text-slate-700 shadow-sm"
-              >
-                {amenity}
-              </li>
-            ))}
-          </ul>
+        <section
+          id="amenities"
+          className="bg-[#f3f1eb] px-6 py-20 lg:px-8 lg:py-24"
+        >
+          <div className="mx-auto max-w-7xl">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="inline-flex bg-blue-700 px-2 py-1 text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white">
+                Everything for an easy stay
+              </p>
 
-          <div className="mt-8 rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
-            <h3 className="text-xl font-semibold text-slate-900">Additional Services</h3>
-            <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
-              <li>• Laundry and dry-cleaning services are available upon request.</li>
-              <li>• Airport transfer assistance can be arranged upon request.</li>
+              <h2 className="mt-3 font-serif text-4xl font-normal tracking-tight text-slate-900 sm:text-5xl">
+                Comforts that feel like home
+              </h2>
+
+              <p className="mt-4 text-base leading-7 text-slate-600">
+                Both apartments offer the same complete set of facilities for a
+                self-sufficient, comfortable stay.
+              </p>
+            </div>
+
+            <ul className="mt-10 grid border-l border-t border-stone-300 sm:grid-cols-2 lg:grid-cols-3">
+              {stayComforts.map((comfort) => (
+                <li
+                  key={comfort.title}
+                  className="group relative z-0 flex min-h-64 flex-col border-b border-r border-stone-300 bg-white/20 p-6 transition duration-300 motion-safe:hover:z-10 motion-safe:hover:-translate-y-1 hover:bg-white hover:shadow-[0_20px_45px_-28px_rgba(15,23,42,0.45)] sm:p-7"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-emerald-900/15 bg-emerald-950 text-white transition duration-300 group-hover:scale-105 group-hover:bg-emerald-900">
+                    <ComfortIcon type={comfort.icon} />
+                  </div>
+
+                  <h3 className="mt-5 font-serif text-xl text-emerald-950">
+                    {comfort.title}
+                  </h3>
+
+                  <p className="mt-3 flex-1 text-sm leading-6 text-slate-700 sm:text-base sm:leading-7">
+                    {comfort.description}
+                  </p>
+
+                  <p className="mt-5">
+                    <span className="inline-flex rounded-full bg-emerald-950 px-3 py-1.5 text-xs font-semibold tracking-wide text-white">
+                      {comfort.badge}
+                    </span>
+                  </p>
+                </li>
+              ))}
             </ul>
           </div>
         </section>
