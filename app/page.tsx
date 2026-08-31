@@ -869,8 +869,8 @@ export default function Home() {
       <section className="bg-[#c76a38] text-white py-20 md:py-24 px-6 md:px-16">
           <SectionHeading
             eyebrow="Contact"
-            title="We’re Here to Help"
-            description="Have questions or planning your stay? Use the verified contacts below to check availability or learn more about Sindhu Suites."
+            <h2 className="text-3xl md:text-4xl font-serif text-white font-semibold mb-4">We’re Here to Help</h2>
+<p className="text-white/90 text-sm md:text-base max-w-2xl mt-2 mb-8">Have questions or planning your stay? Use the verified contacts below to check availability or learn more about Sindhu Suites.</p>
           />
           <div className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
             <div className="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
