@@ -242,7 +242,6 @@ function ComfortIcon({ type }: { type: string }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       className="h-7 w-7"
-    >
       {icon}
     </svg>
   );
@@ -326,7 +325,6 @@ function RoomCard({ room }: { room: Room }) {
           <li
             key={detail}
             className="rounded-full bg-stone-100 px-3 py-2"
-          >
             {detail}
           </li>
         ))}
@@ -337,7 +335,6 @@ function RoomCard({ room }: { room: Room }) {
         className="mt-5 flex min-h-12 w-full items-center justify-center border border-slate-700 px-5 py-3 text-center text-sm text-slate-800 transition hover:bg-slate-800 hover:text-white"
         aria-label={`${room.ctaLabel} on WhatsApp`}
         rel="noopener noreferrer"
-      >
         {room.ctaLabel}
       </a>
     </article>
@@ -438,13 +435,11 @@ export default function Home() {
           <nav
             aria-label="Main navigation"
             className="hidden items-center gap-6 md:flex"
-          >
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 className="text-sm font-medium text-slate-100 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900/70"
-              >
                 {link.label}
               </a>
             ))}
@@ -453,7 +448,6 @@ export default function Home() {
               className="inline-flex items-center rounded-full bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900/70"
               aria-label="WhatsApp for Sindhu Suites inquiries"
               rel="noopener noreferrer"
-            >
               WhatsApp
             </a>
           </nav>
@@ -465,7 +459,6 @@ export default function Home() {
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
             onClick={() => setIsMenuOpen((open) => !open)}
-          >
             <span className="sr-only">Toggle navigation</span>
             <svg
               viewBox="0 0 24 24"
@@ -474,7 +467,6 @@ export default function Home() {
               stroke="currentColor"
               strokeWidth="1.8"
               strokeLinecap="round"
-            >
               {isMenuOpen ? (
                 <path d="M6 18L18 6M6 6l12 12" />
               ) : (
@@ -489,7 +481,6 @@ export default function Home() {
             id="mobile-navigation"
             aria-label="Mobile navigation"
             className="bg-slate-900/85 md:hidden"
-          >
             <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-3 sm:px-6">
               {navLinks.map((link) => (
                 <a
@@ -497,7 +488,6 @@ export default function Home() {
                   href={link.href}
                   className="rounded-xl px-3 py-2 text-sm font-medium text-slate-100 transition hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
                   onClick={() => setIsMenuOpen(false)}
-                >
                   {link.label}
                 </a>
               ))}
@@ -507,7 +497,6 @@ export default function Home() {
                 aria-label="WhatsApp for Sindhu Suites inquiries"
                 rel="noopener noreferrer"
                 onClick={() => setIsMenuOpen(false)}
-              >
                 WhatsApp
               </a>
             </div>
@@ -546,13 +535,11 @@ export default function Home() {
                   className="rounded-full bg-amber-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-amber-800"
                   aria-label="Book on WhatsApp for Sindhu Suites"
                   rel="noopener noreferrer"
-                >
                   Book on WhatsApp
                 </a>
                 <a
                   href="#accommodation"
                   className="rounded-full border border-white/50 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/80 hover:bg-white/20"
-                >
                   View Rooms
                 </a>
               </div>
@@ -698,7 +685,6 @@ export default function Home() {
 
           id="accommodation"
           className="border-y border-stone-200 bg-stone-100"
-        >
           <div className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
             <div>
             <span className="text-[#c79d63] text-xs uppercase tracking-widest font-semibold block mb-3">
@@ -723,7 +709,6 @@ export default function Home() {
         <section
           id="amenities"
           className="bg-[#f3f1eb] px-6 py-20 lg:px-8 lg:py-24"
-        >
           <div className="mx-auto max-w-7xl">
             <div className="mx-auto max-w-3xl text-center">
               <p className="inline-flex bg-blue-700 px-2 py-1 text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white">
@@ -745,7 +730,6 @@ export default function Home() {
                 <li
                   key={comfort.title}
                   className="group relative z-0 flex min-h-64 flex-col border-b border-r border-stone-300 bg-white/20 p-6 transition duration-300 motion-safe:hover:z-10 motion-safe:hover:-translate-y-1 hover:bg-white hover:shadow-[0_20px_45px_-28px_rgba(15,23,42,0.45)] sm:p-7"
-                >
                   <div className="flex h-12 w-12 items-center justify-center rounded-full border border-emerald-900/15 bg-emerald-950 text-white transition duration-300 group-hover:scale-105 group-hover:bg-emerald-900">
                     <ComfortIcon type={comfort.icon} />
                   </div>
@@ -842,7 +826,6 @@ export default function Home() {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="bg-[#1e3e3b] text-white px-5 py-3 text-xs font-semibold uppercase tracking-wider rounded hover:bg-[#152e2c] transition-colors"
-              >
                 Get directions
               </a>
               <a 
@@ -850,7 +833,6 @@ export default function Home() {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="border border-gray-300 text-gray-800 px-5 py-3 text-xs font-semibold uppercase tracking-wider rounded hover:bg-gray-50 transition-colors"
-              >
                 Open in Google Maps
               </a>
             </div>
@@ -897,7 +879,6 @@ export default function Home() {
                 className="mt-3 inline-flex rounded-full bg-emerald-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700"
                 aria-label="Book on WhatsApp for Sindhu Suites"
                 rel="noopener noreferrer"
-              >
                 Book on WhatsApp
               </a>
               <p className="mt-4 text-sm text-slate-600">
@@ -915,7 +896,6 @@ export default function Home() {
                   <a
                     href={`mailto:${contactDetails.email}`}
                     className="mt-1 block text-amber-700 underline-offset-2 hover:underline"
-                  >
                     {contactDetails.email}
                   </a>
                 </li>
