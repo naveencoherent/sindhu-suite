@@ -778,18 +778,18 @@ export default function Home() {
           <div className="space-y-4">
             <div className="border border-white/20 p-6 rounded-none bg-transparent">
               <h3 className="font-semibold text-lg mb-1">
-                Walkable to MS Ramaiah Hospital
+                🏥 Minutes to MS Ramaiah Hospital
               </h3>
               <p className="text-gray-300 text-sm">
-                A comfortable base for patients, families, and visiting professionals.
+                Walkable convenience for medical stays, attending families, and visiting doctors.
               </p>
             </div>
             <div className="border border-white/20 p-6 rounded-none bg-transparent">
               <h3 className="font-semibold text-lg mb-1">
-                Near the Indian Institute of Science
+                🎓 Near IISc Campus
               </h3>
               <p className="text-gray-300 text-sm">
-                Convenient for campus visitors, researchers, and academic stays.
+                Ideally located for researchers, academics, and university visitors.
               </p>
             </div>
             <div className="border border-white/20 p-6 rounded-none bg-transparent">
