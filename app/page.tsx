@@ -691,7 +691,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section
+      <section className="relative bg-[#1a1a1a] text-white py-20 md:py-24 px-6 md:px-16 overflow-hidden border-t border-gray-800">
+        {/* Subtle Lined Grid Texture */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
+        <div className="absolute inset-0 opacity-5 pointer-events-none bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+
           id="accommodation"
           className="border-y border-stone-200 bg-stone-100"
         >
