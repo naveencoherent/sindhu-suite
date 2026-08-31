@@ -696,12 +696,17 @@ export default function Home() {
           className="border-y border-stone-200 bg-stone-100"
         >
           <div className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
-            <SectionHeading
-              eyebrow="Private 2BHK apartments"
-              title="Book Your Entire 2BHK Apartment | Private Stay for Up to 4 Guests"
-              description="Enjoy total privacy with a whole-home vacation rental designed for up to four guests—never a shared space. Choose between our MC and MR 2BHK apartments, both featuring a master king bedroom, a cozy queen bedroom, a fully equipped independent kitchen, and a spacious living room."
-              className="max-w-none"
-            />
+            <div>
+            <span className="text-[#c79d63] text-xs uppercase tracking-widest font-semibold block mb-3">
+              CONTACT
+            </span>
+            <h2 className="text-3xl md:text-4xl font-serif text-white font-semibold mb-4">
+              We’re Here to Help
+            </h2>
+            <p className="text-white/90 text-sm md:text-base max-w-2xl mb-8">
+              Have questions or planning your stay? Use the verified contacts below to check availability or learn more about Sindhu Suites.
+            </p>
+          </div>
 
             <div className="mt-8 grid gap-6 md:grid-cols-2">
               {rooms.map((room) => (
@@ -867,11 +872,17 @@ export default function Home() {
       </section>
 
       <section className="bg-[#c76a38] text-white py-20 md:py-24 px-6 md:px-16">
-          <SectionHeading
-            eyebrow="Contact"
-            <h2 className="text-3xl md:text-4xl font-serif text-white font-semibold mb-4">We’re Here to Help</h2>
-<p className="text-white/90 text-sm md:text-base max-w-2xl mt-2 mb-8">Have questions or planning your stay? Use the verified contacts below to check availability or learn more about Sindhu Suites.</p>
-          />
+          <div>
+            <span className="text-[#c79d63] text-xs uppercase tracking-widest font-semibold block mb-3">
+              CONTACT
+            </span>
+            <h2 className="text-3xl md:text-4xl font-serif text-white font-semibold mb-4">
+              We’re Here to Help
+            </h2>
+            <p className="text-white/90 text-sm md:text-base max-w-2xl mb-8">
+              Have questions or planning your stay? Use the verified contacts below to check availability or learn more about Sindhu Suites.
+            </p>
+          </div>
           <div className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
             <div className="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-700">
