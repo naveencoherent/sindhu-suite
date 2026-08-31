@@ -772,7 +772,7 @@ export default function Home() {
               Close to where you need to be.
             </h2>
             <p className="text-gray-300 text-base leading-relaxed max-w-lg">
-              Sindhu Suites is positioned for hospital visits, campus stays, business travel, and airport access—without giving up the comfort of a complete private apartment.
+              Sindhu Suites keeps you effortlessly connected to major hospitals, universities, corporate hubs, and the airport. Enjoy seamless access to the city while relaxing in the comfort and privacy of your own fully equipped apartment.
             </p>
           </div>
           <div className="space-y-4">
