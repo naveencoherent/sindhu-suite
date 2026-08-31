@@ -866,7 +866,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#f8f6f0] text-gray-900 py-20 md:py-24 px-6 md:px-16">
+      <section className="bg-[#c76a38] text-white py-20 md:py-24 px-6 md:px-16">
           <SectionHeading
             eyebrow="Contact"
             title="We’re Here to Help"
