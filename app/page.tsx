@@ -760,6 +760,56 @@ export default function Home() {
           </div>
         </section>
 
+
+      {/* Well Connected Section */}
+      <section className="bg-[#1e3e3b] text-white py-16 px-6 md:px-16">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span className="text-[#c79d63] text-xs uppercase tracking-widest font-semibold block mb-3">
+              Positioned in the heart of Bengaluru,
+            </span>
+            <h2 className="text-4xl md:text-5xl font-serif mb-6 leading-tight">
+              Close to where you need to be.
+            </h2>
+            <p className="text-gray-300 text-base leading-relaxed max-w-lg">
+              Sindhu Suites is positioned for hospital visits, campus stays, business travel, and airport access—without giving up the comfort of a complete private apartment.
+            </p>
+          </div>
+          <div className="space-y-4">
+            <div className="border border-white/20 p-6 rounded-none bg-transparent">
+              <h3 className="font-semibold text-lg mb-1">
+                Walkable to MS Ramaiah Hospital
+              </h3>
+              <p className="text-gray-300 text-sm">
+                A comfortable base for patients, families, and visiting professionals.
+              </p>
+            </div>
+            <div className="border border-white/20 p-6 rounded-none bg-transparent">
+              <h3 className="font-semibold text-lg mb-1">
+                Near the Indian Institute of Science
+              </h3>
+              <p className="text-gray-300 text-sm">
+                Convenient for campus visitors, researchers, and academic stays.
+              </p>
+            </div>
+            <div className="border border-white/20 p-6 rounded-none bg-transparent">
+              <div className="flex items-center gap-2 mb-1">
+                <div className="bg-[#c79d63] text-[#1e3e3b] rounded-full p-1 text-xs">
+                  ✈️
+                </div>
+                <h3 className="font-semibold text-lg">
+                  Connected for onward travel
+                </h3>
+              </div>
+              <p className="text-gray-300 text-sm pl-7">
+                Approximately a 20-minute drive to Kempegowda International Airport, subject to traffic.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
         <section id="contact" className="mx-auto max-w-6xl px-6 pb-20 lg:px-8">
           <SectionHeading
             eyebrow="Contact"
