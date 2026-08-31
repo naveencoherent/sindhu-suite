@@ -399,7 +399,7 @@ function LocalityCard({ locality }: { locality: Locality }) {
         <PropertyIcon type={locality.icon} />
       </div>
       <h3 className="text-base font-semibold text-white">{locality.title}</h3>
-      <p className="mt-2 text-sm leading-5 text-slate-200">{locality.description}</p>
+      <p className="mt-2 text-sm leading-5 text-gray-600">{locality.description}</p>
     </article>
   );
 
@@ -866,7 +866,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#1e3e3b] text-white py-20 md:py-24 px-6 md:px-16 mt-8">
+      <section className="bg-[#f8f6f0] text-gray-900 py-20 md:py-24 px-6 md:px-16">
           <SectionHeading
             eyebrow="Contact"
             title="We’re Here to Help"
