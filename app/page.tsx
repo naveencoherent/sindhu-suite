@@ -821,10 +821,10 @@ export default function Home() {
               Plan Your Journey
             </span>
             <h2 className="text-3xl md:text-4xl font-serif text-[#1e3e3b] mb-4 font-semibold">
-              Find Sindhu Suites with ease.
+              Find Your Way to Sindhu Suites
             </h2>
             <p className="text-gray-600 text-sm leading-relaxed mb-6">
-              Open directions from your current location to see your route, travel time, and distance in Google Maps. You can also search nearby destinations before your stay.
+              Open your route directly in Google Maps to view estimated travel time and distance from where you are. Feel free to explore nearby landmarks and essentials ahead of your stay.
             </p>
             
             <div className="flex flex-wrap gap-4 mb-6">
