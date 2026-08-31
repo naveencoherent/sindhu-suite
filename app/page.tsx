@@ -769,7 +769,7 @@ export default function Home() {
               Positioned in the heart of Bengaluru,
             </span>
             <h2 className="text-4xl md:text-5xl font-serif mb-6 leading-tight">
-              Close to where you need to be.
+              Stay close to what matters most.
             </h2>
             <p className="text-gray-300 text-base leading-relaxed max-w-lg">
               Sindhu Suites keeps you effortlessly connected to major hospitals, universities, corporate hubs, and the airport. Enjoy seamless access to the city while relaxing in the comfort and privacy of your own fully equipped apartment.
