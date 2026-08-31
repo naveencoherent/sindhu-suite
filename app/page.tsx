@@ -810,6 +810,62 @@ export default function Home() {
       </section>
 
 
+
+      {/* Map Section */}
+      <section className="bg-[#f2efe9] py-16 px-6 md:px-16 border-t border-b border-gray-200">
+        <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden grid grid-cols-1 lg:grid-cols-2">
+          
+          {/* Left Text Block */}
+          <div className="p-8 md:p-12 flex flex-col justify-center">
+            <span className="text-[#c79d63] text-xs uppercase tracking-widest font-semibold block mb-3">
+              Plan Your Journey
+            </span>
+            <h2 className="text-3xl md:text-4xl font-serif text-[#1e3e3b] mb-4 font-semibold">
+              Find Sindhu Suites with ease.
+            </h2>
+            <p className="text-gray-600 text-sm leading-relaxed mb-6">
+              Open directions from your current location to see your route, travel time, and distance in Google Maps. You can also search nearby destinations before your stay.
+            </p>
+            
+            <div className="flex flex-wrap gap-4 mb-6">
+              <a 
+                href="https://maps.google.com/?q=Sindhu+Suites+Sanjaynagar+Bengaluru" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="bg-[#1e3e3b] text-white px-5 py-3 text-xs font-semibold uppercase tracking-wider rounded hover:bg-[#152e2c] transition-colors"
+              >
+                Get directions
+              </a>
+              <a 
+                href="https://maps.google.com/?q=Sindhu+Suites+Sanjaynagar+Bengaluru" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="border border-gray-300 text-gray-800 px-5 py-3 text-xs font-semibold uppercase tracking-wider rounded hover:bg-gray-50 transition-colors"
+              >
+                Open in Google Maps
+              </a>
+            </div>
+
+            <p className="text-xs text-gray-400">
+              Google Maps uses the visitor’s selected or permitted location to calculate distance and travel time.
+            </p>
+          </div>
+
+          {/* Right Map Block */}
+          <div className="relative min-h-[350px] w-full bg-gray-100">
+            <iframe
+              title="Sindhu Suites Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.0526972076043!2d77.5748!3d13.0323!2m3!100!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDAxJzE2LjIiTiA3N8KwMzQnMjkuMyJF!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin"
+              className="absolute inset-0 w-full h-full border-0"
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+
+        </div>
+      </section>
+
         <section id="contact" className="mx-auto max-w-6xl px-6 pb-20 lg:px-8">
           <SectionHeading
             eyebrow="Contact"
