@@ -866,7 +866,7 @@ export default function Home() {
         </div>
       </section>
 
-        <section id="contact" className="mx-auto max-w-6xl px-6 pb-20 lg:px-8">
+      <section className="bg-[#1e3e3b] text-white py-20 md:py-24 px-6 md:px-16 mt-8">
           <SectionHeading
             eyebrow="Contact"
             title="We’re Here to Help"
