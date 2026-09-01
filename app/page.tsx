@@ -810,11 +810,36 @@ export default function Home() {
       </section>
 
 
-      <section className="relative bg-[#1a1a1a] text-white py-20 md:py-24 px-6 md:px-16 overflow-hidden border-t border-gray-800">
+      {/* Plan Your Journey Section */}
+      <section className="bg-[#f4f3ef] py-16 px-6 md:px-16 text-stone-900">
+        <div className="mx-auto max-w-7xl rounded-3xl bg-[#f7f6f2] p-8 border border-stone-200 shadow-sm grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-800">PLAN YOUR JOURNEY</p>
+            <h2 className="mt-2 text-4xl font-serif font-bold text-stone-900">Find Sindhu Suites with ease.</h2>
+            <p className="mt-4 text-stone-600 text-sm leading-relaxed">
+              Open directions from your current location to see your route, travel time, and distance in Google Maps. You can also search nearby destinations before your stay.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-4">
+              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="rounded-lg bg-[#274438] px-6 py-3 text-sm font-medium text-white shadow hover:bg-[#1e342b] transition">
+                Get directions
+              </a>
+              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-stone-800 px-6 py-3 text-sm font-medium text-stone-900 hover:bg-stone-100 transition">
+                Open in Google Maps
+              </a>
+            </div>
+            <p className="mt-6 text-xs text-stone-400">Google Maps uses the visitor’s selected or permitted location to calculate distance and travel time.</p>
+          </div>
+          <div className="w-full h-[350px] rounded-2xl overflow-hidden border border-stone-300 relative shadow-inner">
+            <iframe title="Sindhu Suites Location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.2183!2d77.5750!3d13.0200!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17dbe9bc4bb3%3A0x62804f9f25752c0a!2sRMV%202nd%20Stage%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style={{ border: 0 }} allowFullScreen={false} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </section>
+
+<section className="relative bg-[#536872] text-white py-20 md:py-24 px-6 md:px-16 overflow-hidden border-t border-gray-800">
           <SectionHeading
             eyebrow="Contact"
-            title="We’re Here to Help"
-            description="Have questions or planning your stay? Use the verified contacts below to check availability or learn more about Sindhu Suites."
+            title={<span className="text-amber-300 font-bold">We’re Here to Help</span>}
+            description={<span className="text-white">Have questions or planning your stay? Use the verified contacts below to check availability or learn more about Sindhu Suites.</span>}
           />
           <div className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
             <div className="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
@@ -856,13 +881,33 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </main>
+      
+      
+
+      {/* Merged Footer Section */}
+      <footer className="bg-[#182421] text-stone-300 py-12 px-6 md:px-16 border-t border-stone-800">
+        <div className="mx-auto max-w-7xl flex flex-col md:flex-row justify-between items-start md:items-end gap-8 pb-8 border-b border-stone-800/60">
+          <div className="space-y-4 max-w-md">
+            <h3 className="text-2xl font-serif font-bold text-white">Sindhu Suites</h3>
+            <p className="text-sm text-stone-400">Luxury serviced apartments in Bengaluru.</p>
+            <div className="flex gap-3 pt-2">
+              <a href="#" className="border border-stone-700 px-4 py-1.5 rounded text-xs font-medium text-white hover:bg-stone-800 transition">Instagram</a>
+              <a href="#" className="border border-stone-700 px-4 py-1.5 rounded text-xs font-medium text-white hover:bg-stone-800 transition">Facebook</a>
+              <a href="#" className="border border-stone-700 px-4 py-1.5 rounded text-xs font-medium text-white hover:bg-stone-800 transition">LinkedIn</a>
+            </div>
+            <p className="text-xs text-stone-500 pt-4 leading-relaxed">
+              Sindhu Suites is a brand managed by Souharda Integrated Financial Services Limited and is not an independent legal entity. GSTIN: <span className="font-semibold text-stone-400">to be inserted</span>.
+            </p>
+          </div>
+          <div className="text-xs text-stone-400 md:text-right">
+            <p>#384/A, RMV 2nd Stage, 2nd Block, Bengaluru</p>
+          </div>
+        </div>
+      </footer>
+
+    </main>
 
       <footer className="border-t border-stone-200 bg-white/80">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-8 text-sm text-slate-600 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <p className="font-semibold text-slate-900">Official Sindhu Suites Website</p>
-          <p>Booking Partners: Airbnb, Booking.com, Agoda, and MakeMyTrip.</p>
-        </div>
       </footer>
     </div>
   );
