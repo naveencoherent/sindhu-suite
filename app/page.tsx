@@ -5,7 +5,7 @@ import { useState } from "react";
 
 type Room = {
   eyebrow: string;
-  title: React.ReactNode;
+  title: string;
   description: string;
   details: string[];
   ctaLabel: string;
@@ -115,7 +115,7 @@ const stayComforts = [
 
 type Locality = {
   id: string;
-  title: React.ReactNode;
+  title: string;
   description: string;
   icon: string;
   link?: string;
@@ -255,7 +255,7 @@ function SectionHeading({
   className,
 }: {
   eyebrow: string;
-  title: React.ReactNode;
+  title: string;
   description: string;
   className?: string;
 }) {
@@ -839,7 +839,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Contact"
             title="We’re Here to Help"
-            description={<span className="text-white">Have questions or planning your stay? Use the verified contacts below to check availability or learn more about Sindhu Suites.</span>}
+            description="Have questions or planning your stay? Use the verified contacts below to check availability or learn more about Sindhu Suites."
           />
           <div className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
             <div className="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
