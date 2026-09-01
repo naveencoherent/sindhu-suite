@@ -5,7 +5,7 @@ import { useState } from "react";
 
 type Room = {
   eyebrow: string;
-  title: string;
+  title: React.ReactNode;
   description: string;
   details: string[];
   ctaLabel: string;
@@ -115,7 +115,7 @@ const stayComforts = [
 
 type Locality = {
   id: string;
-  title: string;
+  title: React.ReactNode;
   description: string;
   icon: string;
   link?: string;
@@ -255,7 +255,7 @@ function SectionHeading({
   className,
 }: {
   eyebrow: string;
-  title: string;
+  title: React.ReactNode;
   description: string;
   className?: string;
 }) {
