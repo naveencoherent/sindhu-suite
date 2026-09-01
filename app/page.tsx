@@ -838,7 +838,7 @@ export default function Home() {
 <section className="relative bg-[#536872] text-white py-20 md:py-24 px-6 md:px-16 overflow-hidden border-t border-gray-800">
           <SectionHeading
             eyebrow="Contact"
-            title={<span className="text-amber-300 font-bold">We’re Here to Help</span>}
+            title="We’re Here to Help"
             description={<span className="text-white">Have questions or planning your stay? Use the verified contacts below to check availability or learn more about Sindhu Suites.</span>}
           />
           <div className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
