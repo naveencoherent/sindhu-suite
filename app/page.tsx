@@ -837,11 +837,13 @@ export default function Home() {
 
 <section className="relative bg-[#536872] text-white py-20 md:py-24 px-6 md:px-16 overflow-hidden border-t border-gray-800">
           <div className="[&_h2]:text-amber-300 [&_p]:text-white/90 [&_span]:text-amber-400">
+              <div className="[&_h2]:text-amber-300 [&_p]:text-white/90 [&_span]:text-amber-400">
               <SectionHeading
                 eyebrow="Contact"
                 title="We’re Here to Help"
                 description="Have questions or planning your stay? Get in touch with us directly."
               />
+            </div>
             </div>
           <div className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
             <div className="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
